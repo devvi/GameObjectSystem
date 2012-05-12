@@ -39,6 +39,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>bin\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -50,12 +52,21 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(BOOST_HOME)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(BOOST_HOME);$(OGRE_HOME)/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(OGRE_HOME)\lib\debug;$(BOOST_HOME)\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OgreMain_d.lib;OIS_d.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
     </Link>
+    <PostBuildEvent>
+      <Command>copy "$(OutDir)\$(TargetFileName)" "$(OGRE_HOME)\Bin\$(Configuration)"</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copying exe to samples bin directory ...</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -75,10 +86,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ControllerOISManager.h" />
+    <ClInclude Include="Director.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameObjectSystem.h" />
+    <ClInclude Include="GCEventReceiver.h" />
+    <ClInclude Include="GCnode.h" />
+    <ClInclude Include="GOSDecl.h" />
+    <ClInclude Include="GOSInc.h" />
+    <ClInclude Include="noncopyable.h" />
+    <ClInclude Include="singleton.h" />
+    <ClInclude Include="ViewOgreManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ControllerOISManager.cpp" />
+    <ClCompile Include="Director.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GCnode.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ViewOgreManager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

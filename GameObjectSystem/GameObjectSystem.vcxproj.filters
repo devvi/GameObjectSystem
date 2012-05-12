@@ -13,14 +13,62 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\tools">
+      <UniqueIdentifier>{016da953-1f27-4e71-827e-3453c37352d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="GOSDecl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GOSInc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="singleton.h">
+      <Filter>头文件\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="noncopyable.h">
+      <Filter>头文件\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="GCnode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewOgreManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectSystem.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ControllerOISManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Director.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GCEventReceiver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GCnode.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewOgreManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ControllerOISManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Director.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,0 +1,8 @@
+#ifndef __GAME_OBJECT_SYSTEM_GC_EVENT_RECIEVER_H__
+#define __GAME_OBJECT_SYSTEM_GC_EVENT_RECIEVER_H__
+
+
+
+
+
+#endif

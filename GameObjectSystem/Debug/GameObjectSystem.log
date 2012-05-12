@@ -1,10 +1,41 @@
-﻿生成启动时间为 2011-10-31 23:55:23。
-     1>项目“F:\GitRepositories\myworkspace\GameObjectSystem\GameObjectSystem\GameObjectSystem.vcxproj”在节点 2 上(ClCompile 个目标)。
-     1>ClCompile:
-         f:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IF:\boost_1_46_1 /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GameObject.cpp
+﻿生成启动时间为 2012-05-11 10:56:13。
+     1>项目“F:\GitRepositories\myworkspace\GameObjectSystem\GameObjectSystem\GameObjectSystem.vcxproj”在节点 2 上(rebuild 个目标)。
+     1>_PrepareForClean:
+         正在删除文件“Debug\GameObjectSystem.lastbuildstate”。
+       InitializeBuildStatus:
+         正在创建“Debug\GameObjectSystem.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         f:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IF:\boost_1_46_1 /IF:\dev\OGRE\build_MSVC\sdk/include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GameObject.cpp GCnode.cpp main.cpp ViewOgreManager.cpp
+         ViewOgreManager.cpp
+         main.cpp
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\main.cpp(15): warning C4305: “参数”: 从“double”到“float”截断
+         GCnode.cpp
          GameObject.cpp
-     1>已完成生成项目“F:\GitRepositories\myworkspace\GameObjectSystem\GameObjectSystem\GameObjectSystem.vcxproj”(ClCompile 个目标)的操作。
+         正在生成代码...
+       ManifestResourceCompile:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\GameObjectSystem.exe.embed.manifest.res" Debug\GameObjectSystem_manifest.rc 
+       Link:
+         f:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\GitRepositories\myworkspace\GameObjectSystem\Debug\\GameObjectSystem.exe" /INCREMENTAL /NOLOGO /LIBPATH:F:\dev\OGRE\build_MSVC\sdk\lib\debug /LIBPATH:F:\boost_1_46_1\stage\lib OgreMain_d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\GameObjectSystem.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"F:\GitRepositories\myworkspace\GameObjectSystem\Debug\GameObjectSystem.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\GitRepositories\myworkspace\GameObjectSystem\Debug\GameObjectSystem.lib" /MACHINE:X86 Debug\GameObjectSystem.exe.embed.manifest.res
+         Debug\GameObject.obj
+         Debug\GCnode.obj
+         Debug\main.obj
+         Debug\ViewOgreManager.obj
+       Manifest:
+         正在删除文件“Debug\GameObjectSystem.exe.embed.manifest”。
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\GameObjectSystem.exe.embed.manifest" /manifest Debug\GameObjectSystem.exe.intermediate.manifest
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\GameObjectSystem.exe.embed.manifest.res" Debug\GameObjectSystem_manifest.rc 
+       LinkEmbedManifest:
+         f:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\GitRepositories\myworkspace\GameObjectSystem\Debug\\GameObjectSystem.exe" /INCREMENTAL /NOLOGO /LIBPATH:F:\dev\OGRE\build_MSVC\sdk\lib\debug /LIBPATH:F:\boost_1_46_1\stage\lib OgreMain_d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\GameObjectSystem.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"F:\GitRepositories\myworkspace\GameObjectSystem\Debug\GameObjectSystem.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\GitRepositories\myworkspace\GameObjectSystem\Debug\GameObjectSystem.lib" /MACHINE:X86 Debug\GameObjectSystem.exe.embed.manifest.res
+         Debug\GameObject.obj
+         Debug\GCnode.obj
+         Debug\main.obj
+         Debug\ViewOgreManager.obj
+         GameObjectSystem.vcxproj -> F:\GitRepositories\myworkspace\GameObjectSystem\Debug\GameObjectSystem.exe
+       FinalizeBuildStatus:
+         正在删除文件“Debug\GameObjectSystem.unsuccessfulbuild”。
+         正在对“Debug\GameObjectSystem.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“F:\GitRepositories\myworkspace\GameObjectSystem\GameObjectSystem\GameObjectSystem.vcxproj”(rebuild 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:02.42
+已用时间 00:00:37.39

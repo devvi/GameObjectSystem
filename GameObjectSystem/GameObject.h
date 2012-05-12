@@ -1,40 +1,80 @@
-#include <string>
-#include <map>
-#include <list>
-#include <boost/shared_ptr.hpp>
-#ifndef __GAMEOBJECTSYSTEM_GAMEOBJECT__
-#define __GAMEOBJECTSYSTEM_GAMEOBJECT__
-
+#ifndef __GAME_OBJECT_SYSTEM_GAME_OBJECT_H__
+#define __GAME_OBJECT_SYSTEM_GAME_OBJECT_H__
+#include "GOSDecl.h"
+namespace DAISY{
+/************************************************************************/
+/*                  Base class for Game Component                       */
+/************************************************************************/
 class GameComponent
 {
 public:
-	enum gc_type  {
-		moveble = 0,
-		renderable,
-		timer,
-		input_receiver,
-		rigidbody,
-		collision
-	}; 
-	GameComponent();
-	~GameComponent();
-	void onUpdate();
-	void onAttatchToObject();
-	void onLeaveFromObject();
-private:
-	gc_type _componentType;
-	std::string _componentName;
+	GameComponent(GC_TYPE gc_type = INVALID, GameObject* game_object = NULL);
+	virtual ~GameComponent();
+
+public:
+	virtual void onUpdate(float interval);
+	virtual void onAttachObject();
+	virtual void onDetachObject();
+	GC_TYPE getType();
+	void setGameObejct(GameObject* go);
+	GameObject* getGameObject();
+
+protected:
+	GC_TYPE _gc_type;
+	GameObject* _game_object;
 };
-typedef boost::shared_ptr<GameComponent> GameComponentPtr;
+
+class GameComponentFactory
+{
+public:
+	GameComponentFactory();
+	virtual ~GameComponentFactory();
+	virtual GameComponent* createComponent();
+	virtual void releaseGameComponent(GameComponent* gc);
+};
+
 class GameObject
 {
 public:
-	GameObject();
-	~GameObject();
-	void addGC(GameComponentPtr gcptr);
-	GameComponentPtr getCC(const std::string& gc_name);
-	bool hasGC(const std::string& gc_name);
+	GameObject(const std::string name = "default");
+	virtual ~GameObject();
+	void addGC(GameComponent* gameComponent);
+	GameComponent* getCC(GC_TYPE gc_type);
+	void removeGC(GC_TYPE gc_type);
+	bool hasGC(GC_TYPE gc_type);
+	void removeAllGC();
 private:
-	std::list<GameComponentPtr> _components;
+	GameComponentList _gameComponentList;
+	std::string _name;
 };
+
+class GameObjectManager: public Singleton<GameObjectManager>
+{
+public:
+	GameObjectManager();
+	~GameObjectManager();
+	GameObject* createGameObject(const std::string& name = "default");
+	GameObject* getGameObject(const std::string& name);
+	void releaseGameObject(const std::string& name);
+	void releaseGameObject(GameObject* gameObject);
+	void shutdown();
+private:
+	GameObjectMap _gameObjectMap;	
+};
+
+class GameComponentManager: public Singleton<GameComponentManager>
+{
+public:
+	GameComponentManager();
+	~GameComponentManager();
+	GameComponent* createGameComponent(GC_TYPE gc_type,GameObject* gameObject = NULL);
+	void releaseGameComponent(GameComponent* gameComponent);
+	void setFactory(GC_TYPE type, GameComponentFactory* factory);
+	bool hasFactory(GC_TYPE type);
+	//void shutdown();
+private:
+	GameComponentMap _gameComponentMap;
+	GameComponentFactoyMap _gameComponentFactoryMap;
+};
+}
 #endif
