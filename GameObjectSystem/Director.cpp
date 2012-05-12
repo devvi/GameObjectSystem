@@ -15,6 +15,7 @@ _ogreManager(NULL),
 _componentManager(NULL),
 _gameObjectManager(NULL),
 _oisManager(NULL),
+_scriptManager(NULL),
 _currTime(0),
 _lastTime(0),
 _interval(0),
@@ -25,11 +26,13 @@ Director::~Director(){}
 bool Director::init()
 {
 	_ogreManager  =  new OgreManager();
+	_scriptManager = new ScriptManager();
 	_oisManager = new OISManager();
 	_componentManager  = new GameComponentManager();
 	_gameObjectManager = new GameObjectManager();
 	
 	_ogreManager->init();
+	_scriptManager->init();
 	_oisManager->init();
 	return true;
 }
@@ -65,6 +68,7 @@ void Director::shutdown()
 {
 	_gameObjectManager->shutdown();
 	_oisManager->shutdown();
+	_scriptManager->shutdown();
 	_ogreManager->shutdown();
 
 	delete _gameObjectManager;

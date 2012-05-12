@@ -33,6 +33,8 @@ namespace DAISY{
 		OIS::InputManager*  _inputManager;
 		OIS::Mouse* _mouse;
 		OIS::Keyboard* _keyboard;
+		lua_State* _L;
+
 	};
 }
 

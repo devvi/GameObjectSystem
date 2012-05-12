@@ -51,6 +51,12 @@
     <ClInclude Include="GCEventReceiver.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="GOSScriptManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject.cpp">
@@ -69,6 +75,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Director.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GOSScriptManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua_bindings.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

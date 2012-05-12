@@ -19,6 +19,7 @@ namespace DAISY{
 		GameComponentManager* _componentManager;
 		GameObjectManager* _gameObjectManager;
 		OISManager* _oisManager;
+		ScriptManager* _scriptManager;
 		time_t _currTime;
 		time_t _lastTime;
 		float _interval;

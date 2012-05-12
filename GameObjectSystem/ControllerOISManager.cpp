@@ -1,10 +1,17 @@
 #include "ControllerOISManager.h"
 #include "ViewOgreManager.h"
 #include "Director.h"
+#include "GOSScriptManager.h"
+#include <tolua++.h>
+#include "Debug.h"
 using namespace DAISY;
 template<> OISManager* Singleton<OISManager>::_singleton = NULL;
 
-OISManager::OISManager()
+OISManager::OISManager():
+_inputManager(NULL),
+_mouse(NULL),
+_keyboard(NULL),
+_L(NULL)
 {
 
 }
@@ -33,6 +40,8 @@ bool OISManager::init()
 
 	_keyboard->setEventCallback(this);
 	_mouse->setEventCallback(this);
+
+	_L = ScriptManager::getInstance().getLuaVM();
 	return true;
 }
 
@@ -45,6 +54,27 @@ bool OISManager::keyPressed( const OIS::KeyEvent &arg )
 		return true;
 	}
 	
+	
+	lua_getglobal(_L, "onKeyPressed");						/* STACK: func? */
+	
+	if(lua_isfunction(_L, -1))								
+	{
+		tolua_pushusertype(_L, (void*)&arg, "KeyEvent");		/* STACK: func arg */
+
+		if(lua_pcall(_L, 1, 0, 0) != 0)
+		{
+			
+			//printf("error from keypressed info: %s", lua_tostring(_L, -1));
+			
+			TRACE(lua_tostring(_L, -1));
+			assert(0);
+		}
+	}
+	else
+	{
+		lua_pop(_L, 1);
+		assert(0);
+	}
 	KeyboardList::iterator it = _keyboardList.begin();
 	
 	bool ret = true;
@@ -62,6 +92,28 @@ bool OISManager::keyPressed( const OIS::KeyEvent &arg )
 
 bool OISManager::keyReleased( const OIS::KeyEvent &arg )
 {
+	lua_getglobal(_L, "onKeyReleased");						/* STACK: func? */
+
+	if(lua_isfunction(_L, -1))								
+	{
+		tolua_pushusertype(_L, (void*)&arg, "KeyEvent");		/* STACK: func arg */
+
+		if(lua_pcall(_L, 1, 0, 0) != 0)
+		{
+
+			//printf("error from keypressed info: %s", lua_tostring(_L, -1));
+
+			TRACE(lua_tostring(_L, -1));
+			assert(0);
+		}
+	}
+	else
+	{
+		lua_pop(_L, 1);
+		assert(0);
+	}
+
+
 	KeyboardList::iterator it = _keyboardList.begin();
 
 	bool ret = true;
@@ -79,6 +131,27 @@ bool OISManager::keyReleased( const OIS::KeyEvent &arg )
 
 bool OISManager::mouseMoved( const OIS::MouseEvent &arg )
 {
+
+	lua_getglobal(_L, "onMouseMoved");						/* STACK: func? */
+
+	if(lua_isfunction(_L, -1))								
+	{
+		tolua_pushusertype(_L, (void*)&arg, "MouseEvent");		/* STACK: func arg */
+
+		if(lua_pcall(_L, 1, 0, 0) != 0)
+		{
+
+			//printf("error from keypressed info: %s", lua_tostring(_L, -1));
+
+			TRACE(lua_tostring(_L, -1));
+			assert(0);
+		}
+	}
+	else
+	{
+		lua_pop(_L, 1);
+		assert(0);
+	}
 	MouseList::iterator it = _mouseList.begin();
 
 	bool ret = true;
@@ -97,6 +170,27 @@ bool OISManager::mouseMoved( const OIS::MouseEvent &arg )
 
 bool OISManager::mousePressed( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
 {
+	lua_getglobal(_L, "onMousePressed");						/* STACK: func? */
+
+	if(lua_isfunction(_L, -1))								
+	{
+		tolua_pushusertype(_L, (void*)&arg, "MouseEvent");		/* STACK: func arg */
+		tolua_pushnumber(_L, id);								/* STACK: func arg id */
+		if(lua_pcall(_L, 2, 0, 0) != 0)							
+		{
+
+			//printf("error from keypressed info: %s", lua_tostring(_L, -1));
+
+			TRACE(lua_tostring(_L, -1));
+			assert(0);
+		}
+	}
+	else
+	{
+		lua_pop(_L, 1);
+		assert(0);
+	}
+
 	MouseList::iterator it = _mouseList.begin();
 
 	bool ret = true;
@@ -114,6 +208,29 @@ bool OISManager::mousePressed( const OIS::MouseEvent &arg, OIS::MouseButtonID id
 
 bool OISManager::mouseReleased( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
 {
+	lua_getglobal(_L, "onMouseReleased");						/* STACK: func? */
+
+	if(lua_isfunction(_L, -1))								
+	{
+		tolua_pushusertype(_L, (void*)&arg, "MouseEvent");		/* STACK: func arg */
+		tolua_pushnumber(_L, id);								/* STACK: func arg id */
+		if(lua_pcall(_L, 2, 0, 0) != 0)
+		{
+
+			//printf("error from keypressed info: %s", lua_tostring(_L, -1));
+
+			TRACE(lua_tostring(_L, -1));
+			assert(0);
+		}
+	}
+	else
+	{
+		lua_pop(_L, 1);
+		assert(0);
+	}
+
+
+
 	MouseList::iterator it = _mouseList.begin();
 
 bool ret = true;

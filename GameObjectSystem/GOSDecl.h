@@ -1,6 +1,9 @@
 #ifndef __GAME_OBJECT_SYSTEM_GAME_DECL_H__
 #define __GAME_OBJECT_SYSTEM_GAME_DECL_H__
 #include "GOSInc.h"
+
+
+struct lua_State;
 namespace DAISY{
 class GameComponent;
 class GameObject;
@@ -9,6 +12,7 @@ class GameComponentFactory;
 class GameComponentManager;
 class OISManager;
 class OgreManager;
+class ScriptManager;
 
 enum GC_TYPE
 {

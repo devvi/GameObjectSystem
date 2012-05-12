@@ -33,6 +33,11 @@ Ogre::RenderWindow* OgreManager::getRenderWindow()
 
 bool OgreManager::update(float interval)
 {
+
+	//Pump system event otherwise will lead to some input error
+	//see http://www.ogre3d.org/tikiwiki/Using+OIS
+	Ogre::WindowEventUtilities::messagePump();
+
 	_root->renderOneFrame(interval);
 	return true;
 }

@@ -6,5 +6,5 @@
 #include <string>
 #include "noncopyable.h"
 #include "singleton.h"
-
+#include "Debug.h"
 #endif

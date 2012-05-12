@@ -5,5 +5,6 @@
 #include "GCnode.h"
 #include "ViewOgreManager.h"
 #include "ControllerOISManager.h"
+#include "GOSScriptManager.h"
 #include "Director.h"
 #endif  
