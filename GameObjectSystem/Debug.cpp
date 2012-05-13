@@ -12,3 +12,7 @@ void TRACE(const char* info)
 	OutputDebugString(buf);
 	OutputDebugString(enter);
 }
+void al_debugger_break()
+{
+	DebugBreak();
+}

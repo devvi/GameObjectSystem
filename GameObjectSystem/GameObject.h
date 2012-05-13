@@ -8,19 +8,23 @@ namespace DAISY{
 class GameComponent
 {
 public:
-	GameComponent(GC_TYPE gc_type = INVALID, GameObject* game_object = NULL);
+	GameComponent(TYPE_ID gc_type = INVALID,  GameObject* game_object = NULL);
 	virtual ~GameComponent();
 
-public:
+
 	virtual void onUpdate(float interval);
 	virtual void onAttachObject();
 	virtual void onDetachObject();
-	GC_TYPE getType();
+	TYPE_ID getType();
 	void setGameObejct(GameObject* go);
+	void detachFromObject();
+	void setUserType(TYPE_ID type);
+	TYPE_ID getUserType();
 	GameObject* getGameObject();
-
+	
 protected:
-	GC_TYPE _gc_type;
+	TYPE_ID _gc_type;
+	TYPE_ID _user_type;
 	GameObject* _game_object;
 };
 
@@ -39,13 +43,17 @@ public:
 	GameObject(const std::string name = "default");
 	virtual ~GameObject();
 	void addGC(GameComponent* gameComponent);
-	GameComponent* getCC(GC_TYPE gc_type);
-	void removeGC(GC_TYPE gc_type);
-	bool hasGC(GC_TYPE gc_type);
+	GameComponent* getCC(TYPE_ID gc_type);
+	GameComponent* getUserGC(TYPE_ID user_type);
+	void removeGC(TYPE_ID gc_type);
+	bool hasGC(TYPE_ID gc_type);
+	bool hasUserGC(TYPE_ID user_type);
 	void removeAllGC();
+	bool update();
 private:
-	GameComponentList _gameComponentList;
 	std::string _name;
+	lua_State* _L;
+	GameComponentList _gameComponentList;
 };
 
 class GameObjectManager: public Singleton<GameObjectManager>
@@ -58,6 +66,7 @@ public:
 	void releaseGameObject(const std::string& name);
 	void releaseGameObject(GameObject* gameObject);
 	void shutdown();
+	bool update();
 private:
 	GameObjectMap _gameObjectMap;	
 };
@@ -67,14 +76,16 @@ class GameComponentManager: public Singleton<GameComponentManager>
 public:
 	GameComponentManager();
 	~GameComponentManager();
-	GameComponent* createGameComponent(GC_TYPE gc_type,GameObject* gameObject = NULL);
+	GameComponent* createGameComponent(TYPE_ID gc_type, TYPE_ID user_type = INVALID, GameObject* gameObject = NULL);
 	void releaseGameComponent(GameComponent* gameComponent);
-	void setFactory(GC_TYPE type, GameComponentFactory* factory);
-	bool hasFactory(GC_TYPE type);
+	void setFactory(TYPE_ID type, GameComponentFactory* factory);
+	bool hasFactory(TYPE_ID type);
+	void registerUserComponent(TYPE_ID type, std::string& typeName);
 	//void shutdown();
 private:
 	GameComponentMap _gameComponentMap;
 	GameComponentFactoyMap _gameComponentFactoryMap;
+	UserRegList _userRegList;
 };
 }
 #endif

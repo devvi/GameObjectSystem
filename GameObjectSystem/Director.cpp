@@ -1,6 +1,6 @@
 #include "Director.h"
 #include "GameObjectSystem.h"
-#include <mmsystem.h>
+#include <tolua++.h>
 using namespace  DAISY;
 /*
 static NodeComponentFactory* nodeFactory = NULL;
@@ -30,11 +30,11 @@ bool Director::init()
 	_oisManager = new OISManager();
 	_componentManager  = new GameComponentManager();
 	_gameObjectManager = new GameObjectManager();
-	
-	_ogreManager->init();
-	_scriptManager->init();
-	_oisManager->init();
-	return true;
+
+	if(_ogreManager->init() && _scriptManager->init() && _oisManager->init())
+		return true;
+	else
+		return false;
 }
 
 bool Director::run()
@@ -54,6 +54,8 @@ bool Director::run()
 			_ogreManager->update(_passedTime);
 
 			_oisManager->update();
+
+			_gameObjectManager->update();
 
 			_passedTime = 0;
 		}

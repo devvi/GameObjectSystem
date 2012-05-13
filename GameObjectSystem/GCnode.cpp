@@ -59,6 +59,10 @@ void Node::onAttachObject()
 
 }
 
+void Node::setVisible(bool isVisible)
+{
+	_node->setVisible(isVisible);
+}
 // call this function when detach from a gameobject
 void Node::onDetachObject()
 {

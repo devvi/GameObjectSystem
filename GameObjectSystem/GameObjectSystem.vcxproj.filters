@@ -57,6 +57,9 @@
     <ClInclude Include="Debug.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="GCUserComponent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject.cpp">
@@ -84,6 +87,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Debug.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="UserComponent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="lua_bindgs_manually.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

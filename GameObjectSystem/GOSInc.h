@@ -4,7 +4,9 @@
 #include <list>
 #include <map>
 #include <string>
+#include <algorithm>
 #include "noncopyable.h"
 #include "singleton.h"
 #include "Debug.h"
+#include <mmsystem.h>
 #endif

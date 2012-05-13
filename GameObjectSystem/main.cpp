@@ -44,9 +44,10 @@ INT WINAPI WinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance, 
 	Director director;
 	if(director.init())
 	{
-		createSimpleSceneTest();
 		director.run();
 	}
+	else
+		exit(0);
 
 	return 0;
 }

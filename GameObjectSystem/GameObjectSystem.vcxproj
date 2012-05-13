@@ -51,7 +51,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(BOOST_HOME);$(OGRE_HOME)/include;$(TO_LUA_HOME)/include;$(LUA_DEV)/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -93,6 +93,7 @@
     <ClInclude Include="GameObjectSystem.h" />
     <ClInclude Include="GCEventReceiver.h" />
     <ClInclude Include="GCnode.h" />
+    <ClInclude Include="GCUserComponent.h" />
     <ClInclude Include="GOSDecl.h" />
     <ClInclude Include="GOSInc.h" />
     <ClInclude Include="GOSScriptManager.h" />
@@ -107,8 +108,10 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GCnode.cpp" />
     <ClCompile Include="GOSScriptManager.cpp" />
+    <ClCompile Include="lua_bindgs_manually.cpp" />
     <ClCompile Include="Lua_bindings.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="UserComponent.cpp" />
     <ClCompile Include="ViewOgreManager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -3,6 +3,7 @@
 #include "GOSInc.h"
 
 
+
 struct lua_State;
 namespace DAISY{
 class GameComponent;
@@ -14,20 +15,23 @@ class OISManager;
 class OgreManager;
 class ScriptManager;
 
-enum GC_TYPE
-{
-	INVALID = 1,
-	OGRENODE,
-	FIXTURE,
-	BODY,
-	EVENTRECIEVER,
-	RENDER_CAM,
-	RENDER_ENTITY
-};
+
+const int INVALID			= 1;
+const int OGRENODE			= 2;
+const int FIXTURE			= 3;
+const int BODY				= 4;
+const int EVENTRECIEVER     = 5;
+const int RENDER_CAM        = 6;
+const int RENDER_ENTITY     = 7;
+const int USER				= 8;
+
+typedef int TYPE_ID;
 typedef std::list<GameComponent*> GameComponentList;
 typedef std::map<const std::string, GameComponent*> GameComponentMap;
 typedef std::list<GameObject*> GameObjectList;
 typedef std::map<const std::string, GameObject*> GameObjectMap;
-typedef std::map<GC_TYPE, GameComponentFactory*> GameComponentFactoyMap;
+typedef std::map<TYPE_ID, GameComponentFactory*> GameComponentFactoyMap;
+typedef std::list<TYPE_ID> UserRegList;
+//typedef std::map<TYPE_ID, >
 }
 #endif

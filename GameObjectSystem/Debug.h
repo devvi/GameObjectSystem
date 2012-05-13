@@ -7,5 +7,6 @@
 #include <tchar.h>
 
 void TRACE(const char* info);
+void al_debugger_break();
 #endif
 #endif

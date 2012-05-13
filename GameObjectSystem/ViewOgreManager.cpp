@@ -150,23 +150,6 @@ void OgreManager::clearResources()
 }
 void OgreManager::createSimpleScene()
 {
-	/*
-	Ogre::Entity* ogreHead = _sceneManager->createEntity("terrain", "simple_terrain.mesh");
-	Ogre::Entity* penguin = _sceneManager->createEntity("penguin", "cube.mesh");
-	Ogre::Entity* robot = _sceneManager->createEntity("robot", "robot.mesh");
-	penguin->setMaterialName("cube");
-	ogreHead->setMaterialName("cg/Hatch");
-	robot->setMaterialName("cg/Hatch");
-	Ogre::SceneNode* headNode = _sceneManager->getRootSceneNode()->createChildSceneNode();
-	Ogre::SceneNode* penguinNode = _sceneManager->getRootSceneNode()->createChildSceneNode(Ogre::Vector3(0, 400, 0));
-	Ogre::SceneNode* robotNode = _sceneManager->getRootSceneNode()->createChildSceneNode(Ogre::Vector3(20, 20, 20));
-	headNode->attachObject(ogreHead);
-	penguinNode->attachObject(penguin);
-	robotNode->attachObject(robot);
-	// Set ambient light
-*/
-	//mSceneMgr->setAmbientLight(Ogre::ColourValue::Blue);
-
 	// Create a light
 	Ogre::Light* l = _sceneManager->createLight("MainLight");
 	l->setType(Ogre::Light::LT_POINT);
