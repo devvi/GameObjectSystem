@@ -4,7 +4,7 @@
 
 using namespace DAISY;
 
-Node::Node(GameObject* game_object):
+GCNode::GCNode(GameObject* game_object):
 GameComponent(OGRENODE, game_object),
 _sceneManager(OgreManager::getInstance().getSceneManager())
 {
@@ -17,7 +17,7 @@ _sceneManager(OgreManager::getInstance().getSceneManager())
 	}
 	
 }
-Node::Node(GameObject* game_object, Node* parent, Ogre::Vector3 &pos, Ogre::Quaternion &orient)
+GCNode::GCNode(GameObject* game_object, GCNode* parent, Ogre::Vector3 &pos, Ogre::Quaternion &orient)
 {
 	_node  = parent->getOgreNode()->createChildSceneNode(pos, orient);
 	if (game_object)
@@ -25,62 +25,113 @@ Node::Node(GameObject* game_object, Node* parent, Ogre::Vector3 &pos, Ogre::Quat
 		game_object->addGC(this);
 	}
 }
-Node::~Node()
+GCNode::~GCNode()
 {
 	if(_sceneManager)
 	{
 		_sceneManager->destroySceneNode(_node);
 	}
 }
-void Node::translate(Ogre::Vector3 &pos)
+
+void GCNode::attachNode(GCNode* child)
+{
+	assert(child);
+	
+	// check if this child node has a parent,if it is,then detach from its parent
+
+	if(_sceneManager->hasSceneNode(child->getOgreNode()->getParentSceneNode()->getName()))
+		child->getOgreNode()->getParentSceneNode()->removeChild(child->getOgreNode());
+
+	_node->addChild(child->getOgreNode());
+
+}
+
+void GCNode::detachFromParentNode()
+{
+	Ogre::SceneNode* parent = _node->getParentSceneNode();
+	if( _sceneManager->hasSceneNode(parent->getName()) )
+	{
+		parent->removeChild(_node);
+	}
+}
+
+void GCNode::detachNode(GCNode* child)
+{
+	assert(child);
+
+	_node->removeChild(child->getOgreNode());
+	
+}
+
+void GCNode::yaw(float value)
+{
+	Ogre::Degree d(value);
+	Ogre::Radian r(d);
+	_node->yaw(r);
+}
+
+void GCNode::roll(float value)
+{
+	Ogre::Degree d(value);
+	Ogre::Radian r(d);
+	_node->roll(r);
+}
+
+void GCNode::pitch(float value)
+{
+	Ogre::Degree d(value);
+	Ogre::Radian r(d);
+	_node->pitch(r);
+}
+void GCNode::translate(Ogre::Vector3 &pos)
 {
 	_node->translate(pos);
 }
 
-void Node::setPosition(Ogre::Vector3 &pos)
+void GCNode::setPosition(Ogre::Vector3 &pos)
 {
 	_node->setPosition(pos);
 }
 
-void Node::setOrientation(Ogre::Quaternion& orient)
+void GCNode::setOrientation(Ogre::Quaternion& orient)
 {
 	_node->setOrientation(orient);
 }
 
-void Node::onUpdate(float interval)
+void GCNode::onUpdate(float interval)
 {
 	//placeholder here
 	//when a separated renrdersystem is established,this function is uesed to update render or transform component
 }
 
 // call this function when attach to a gameobject
-void Node::onAttachObject()
+void GCNode::onAttachObject()
 {
 
 }
 
-void Node::setVisible(bool isVisible)
+void GCNode::setVisible(bool isVisible)
 {
 	_node->setVisible(isVisible);
 }
 // call this function when detach from a gameobject
-void Node::onDetachObject()
+void GCNode::onDetachObject()
 {
 }
 
-Ogre::SceneNode* Node::getOgreNode()
+Ogre::SceneNode* GCNode::getOgreNode()
 {
 	return _node;
 }
 
-OgreEntity::OgreEntity(GameObject* game_object):
+GCEntity::GCEntity(GameObject* game_object):
 GameComponent(RENDER_ENTITY, game_object),
 _entity(NULL), _sceneManager( OgreManager::getInstance().getSceneManager())
 {
 	if( game_object )
 		game_object->addGC(this);
 }
-OgreEntity::OgreEntity(GameObject* game_object,const std::string& entityName, const std::string& modelName):
+GCEntity::GCEntity(GameObject* game_object,const std::string& entityName, const std::string& modelName):
 
 _sceneManager( OgreManager::getInstance().getSceneManager()),
 _entity(_sceneManager->createEntity(entityName, modelName))
@@ -89,14 +140,14 @@ _entity(_sceneManager->createEntity(entityName, modelName))
 	if( game_object )
 		game_object->addGC(this);
 }
-OgreEntity::~OgreEntity()
+GCEntity::~GCEntity()
 {
 	if(_entity)
 	{
 		_sceneManager->destroyEntity(_entity);
 	}
 }
-void OgreEntity::initEntity(const std::string& entityName, const std::string& modelName)
+void GCEntity::initEntity(const std::string& entityName, const std::string& modelName)
 {
 	if (!_entity)
 	{
@@ -104,52 +155,52 @@ void OgreEntity::initEntity(const std::string& entityName, const std::string& mo
 	}
 }
 
-void OgreEntity::onUpdate(float interval)
+void GCEntity::onUpdate(float interval)
 {
 
 }
-void OgreEntity::onAttachObject()
+void GCEntity::onAttachObject()
 {
 	if(_game_object->hasGC(OGRENODE))
 	{
-		Node* node = (Node*)_game_object->getCC(OGRENODE);
+		GCNode* node = (GCNode*)_game_object->getGC(OGRENODE);
 		Ogre::SceneNode* sceneNode = node->getOgreNode();
 		sceneNode ->attachObject(_entity);
 	}
 }
-void OgreEntity::onDetachObject()
+void GCEntity::onDetachObject()
 {
 	if(_game_object->hasGC(OGRENODE))
 	{
-		Node* node = (Node*)_game_object->getCC(OGRENODE);
+		GCNode* node = (GCNode*)_game_object->getGC(OGRENODE);
 		Ogre::SceneNode* sceneNode = node->getOgreNode();
 		sceneNode ->detachObject(_entity);
 	}
 }
 
-Ogre::Entity* OgreEntity::getOgreEntity()
+Ogre::Entity* GCEntity::getOgreEntity()
 {
 	return _entity;
 }
-std::string OgreEntity::getModelName()
+std::string GCEntity::getModelName()
 {
 	return _modelName;
 }
-std::string OgreEntity::getEntityName()
+std::string GCEntity::getEntityName()
 {
 	return _entityName;
 }
-void OgreEntity::setMaterialName(const std::string& materialName)
+void GCEntity::setMaterialName(const std::string& materialName)
 {
 	if(_entity)
 		_entity->setMaterialName(materialName);
 }
 
-bool OgreEntity::attachToOgreNode()
+bool GCEntity::attachToOgreNode()
 {
 	if(_game_object->hasGC(OGRENODE))
 	{
-		Node* node = (Node*)_game_object->getCC(OGRENODE);
+		GCNode* node = (GCNode*)_game_object->getGC(OGRENODE);
 		Ogre::SceneNode* sceneNode = node->getOgreNode();
 		sceneNode ->attachObject(_entity);
 		return true;
@@ -158,11 +209,11 @@ bool OgreEntity::attachToOgreNode()
 		return false;
 }
 
-bool OgreEntity::detachFromOgreNode()
+bool GCEntity::detachFromOgreNode()
 {
 	if(_game_object->hasGC(OGRENODE))
 	{
-		Node* node = (Node*)_game_object->getCC(OGRENODE);
+		GCNode* node = (GCNode*)_game_object->getGC(OGRENODE);
 		Ogre::SceneNode* sceneNode = node->getOgreNode();
 		sceneNode ->detachObject(_entity);
 		return true;
@@ -171,7 +222,7 @@ bool OgreEntity::detachFromOgreNode()
 		return false;
 }
 
-OgreCamera::OgreCamera(GameObject* game_object ):
+GCCamera::GCCamera(GameObject* game_object ):
 GameComponent(RENDER_CAM, game_object),
 _sceneManager(OgreManager::getInstance().getSceneManager()),
 _camera(NULL)
@@ -180,41 +231,41 @@ _camera(NULL)
 		game_object->addGC(this);
 }
 
-OgreCamera::~OgreCamera()
+GCCamera::~GCCamera()
 {
 	if (_camera)
 		_sceneManager->destroyCamera(_camera);
 }
 
-void OgreCamera::initCamera(const std::string& cameraName)
+void GCCamera::initCamera(const std::string& cameraName)
 {
 	if(!_camera)
 		_camera = _sceneManager->createCamera(cameraName);
 }
-void OgreCamera::onUpdate(float interval)
+void GCCamera::onUpdate(float interval)
 {
 	
 }
-void OgreCamera::onAttachObject()
+void GCCamera::onAttachObject()
 {
 	if(_game_object->hasGC(OGRENODE))
 	{
-		Node* node = (Node*)_game_object->getCC(OGRENODE);
+		GCNode* node = (GCNode*)_game_object->getGC(OGRENODE);
 		Ogre::SceneNode* sceneNode = node->getOgreNode();
 		sceneNode ->attachObject(_camera);
 	}
 }
-void OgreCamera::onDetachObject()
+void GCCamera::onDetachObject()
 {
 	if(_game_object->hasGC(OGRENODE))
 	{
-		Node* node = (Node*)_game_object->getCC(OGRENODE);
+		GCNode* node = (GCNode*)_game_object->getGC(OGRENODE);
 		Ogre::SceneNode* sceneNode = node->getOgreNode();
 		sceneNode ->detachObject(_camera);
 	}
 
 }
-Ogre::Camera* OgreCamera::getOgreCamera()
+Ogre::Camera* GCCamera::getOgreCamera()
 {
 	if(_camera)
 		return _camera;
@@ -226,14 +277,14 @@ CameraComponentFactory::CameraComponentFactory(){}
 CameraComponentFactory::~CameraComponentFactory(){}
 GameComponent* CameraComponentFactory::createComponent()
 {
-	return new OgreCamera();
+	return new GCCamera();
 }
 
 void CameraComponentFactory::releaseGameComponent(GameComponent* gc)
 {
 	if(gc)
 	{
-		gc = (OgreCamera*)gc;
+		gc = (GCCamera*)gc;
 		delete gc;
 	}
 }
@@ -249,14 +300,14 @@ OgreEntityComponentFactory::~OgreEntityComponentFactory()
 
 GameComponent* OgreEntityComponentFactory::createComponent()
 {
-	return new OgreEntity();
+	return new GCEntity();
 }
 
 void OgreEntityComponentFactory::releaseGameComponent(GameComponent* gc)
 {
 	if(gc)
 	{
-		gc = (OgreEntity*)gc;
+		gc = (GCEntity*)gc;
 		delete gc;
 	}
 	
@@ -272,14 +323,14 @@ NodeComponentFactory::~NodeComponentFactory()
 
 GameComponent* NodeComponentFactory::createComponent()
 {
-	return new Node();
+	return new GCNode();
 }
 
 void NodeComponentFactory::releaseGameComponent(GameComponent* gc)
 {
 	if (gc)
 	{
-		gc = (Node*)gc;
+		gc = (GCNode*)gc;
 		delete gc;
 	}
 }

@@ -14,16 +14,16 @@ class GameComponentManager;
 class OISManager;
 class OgreManager;
 class ScriptManager;
+class PhysicsManager;
 
 
 const int INVALID			= 1;
 const int OGRENODE			= 2;
-const int FIXTURE			= 3;
-const int BODY				= 4;
-const int EVENTRECIEVER     = 5;
-const int RENDER_CAM        = 6;
-const int RENDER_ENTITY     = 7;
-const int USER				= 8;
+const int PHYBODY			= 3;
+const int EVENTRECIEVER     = 4;
+const int RENDER_CAM        = 5;
+const int RENDER_ENTITY     = 6;
+const int USER				= 7;
 
 typedef int TYPE_ID;
 typedef std::list<GameComponent*> GameComponentList;

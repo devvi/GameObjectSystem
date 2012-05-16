@@ -15,11 +15,11 @@ void createSimpleSceneTest()
 	GameComponentManager::getInstance().setFactory(RENDER_ENTITY, entityFactory);
 
 	GameObject* robotGo = GameObjectManager::getInstance().createGameObject("robot");
-	Node* node = (Node*)GameComponentManager::getInstance().createGameComponent(OGRENODE);
+	GCNode* node = (GCNode*)GameComponentManager::getInstance().createGameComponent(OGRENODE);
 	node->translate(Ogre::Vector3(Ogre::Vector3(20, 20, 20)));
 	robotGo->addGC(node);
 
-	OgreEntity* robotEntity  = (OgreEntity*)GameComponentManager::getInstance().createGameComponent(RENDER_ENTITY);
+	GCEntity* robotEntity  = (GCEntity*)GameComponentManager::getInstance().createGameComponent(RENDER_ENTITY);
 	robotEntity->initEntity("robot", "robot.mesh");
 	robotEntity->setMaterialName("CelRobot");
 	robotGo->addGC(robotEntity);
@@ -29,8 +29,8 @@ void createSimpleSceneTest()
 
 void destroySimpleSceneTest()
 {
-	GameComponent* node =  GameObjectManager::getInstance().getGameObject("test")->getCC(OGRENODE);
-	GameComponent* entity =  GameObjectManager::getInstance().getGameObject("test")->getCC(RENDER_ENTITY);
+	GameComponent* node =  GameObjectManager::getInstance().getGameObject("test")->getGC(OGRENODE);
+	GameComponent* entity =  GameObjectManager::getInstance().getGameObject("test")->getGC(RENDER_ENTITY);
 	GameComponentManager::getInstance().releaseGameComponent(node);
 	GameComponentManager::getInstance().releaseGameComponent(entity);
 	GameObjectManager::getInstance().releaseGameObject("robot");

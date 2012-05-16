@@ -85,7 +85,7 @@ void GameObject::addGC(GameComponent* gameComponent)
 	_gameComponentList.push_back(gameComponent);
 }
 
-GameComponent* GameObject::getCC(TYPE_ID gc_type)
+GameComponent* GameObject::getGC(TYPE_ID gc_type)
 {
 	GameComponentList::const_iterator it = _gameComponentList.begin();
 	for(;it!= _gameComponentList.end();++it)

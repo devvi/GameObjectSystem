@@ -26,8 +26,6 @@ namespace DAISY {
 		void createCamera();
 	
 		void createViewports();
-	
-
 
 		void loadResources();
 

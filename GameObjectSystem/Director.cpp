@@ -16,6 +16,7 @@ _componentManager(NULL),
 _gameObjectManager(NULL),
 _oisManager(NULL),
 _scriptManager(NULL),
+_physicsManager(NULL),
 _currTime(0),
 _lastTime(0),
 _interval(0),
@@ -30,6 +31,7 @@ bool Director::init()
 	_oisManager = new OISManager();
 	_componentManager  = new GameComponentManager();
 	_gameObjectManager = new GameObjectManager();
+	_physicsManager = new PhysicsManager();
 
 	if(_ogreManager->init() && _scriptManager->init() && _oisManager->init())
 		return true;
@@ -51,12 +53,13 @@ bool Director::run()
 		
 		if(_passedTime >= FIXED_UPDATE_FRAMERATE)
 		{
-			_ogreManager->update(_passedTime);
+			_physicsManager->update(FIXED_UPDATE_FRAMERATE);
 
 			_oisManager->update();
 
 			_gameObjectManager->update();
 
+			_ogreManager->update(FIXED_UPDATE_FRAMERATE);
 			_passedTime = 0;
 		}
 		if(_isExit)
@@ -71,11 +74,13 @@ void Director::shutdown()
 	_gameObjectManager->shutdown();
 	_oisManager->shutdown();
 	_scriptManager->shutdown();
+	_physicsManager->shutdown();
 	_ogreManager->shutdown();
 
 	delete _gameObjectManager;
 	delete _componentManager;
 	delete _oisManager;
+	delete _physicsManager;
 	delete _ogreManager;
 }
 void Director::setExit(bool exit)

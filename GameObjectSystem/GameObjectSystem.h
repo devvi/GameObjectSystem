@@ -6,5 +6,6 @@
 #include "ViewOgreManager.h"
 #include "ControllerOISManager.h"
 #include "GOSScriptManager.h"
+#include "PhysicsManager.h"
 #include "Director.h"
 #endif  

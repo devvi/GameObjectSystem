@@ -6,17 +6,23 @@
 #include <OGRE/Ogre.h>
 namespace DAISY{
 
-class Node:public GameComponent
+class GCNode:public GameComponent
 {
 public:	
-	Node(GameObject* game_object = NULL);
-	Node(GameObject* game_object, Node* parent, Ogre::Vector3 &pos, Ogre::Quaternion &orient);
-	~Node();
+	GCNode(GameObject* game_object = NULL);
+	GCNode(GameObject* game_object, GCNode* parent, Ogre::Vector3 &pos, Ogre::Quaternion &orient);
+	~GCNode();
 	void onUpdate(float interval);
 	void onAttachObject();
 	void onDetachObject();
 	Ogre::SceneNode* getOgreNode();
+	void attachNode(GCNode* child);
+	void detachNode(GCNode* child);
+	void detachFromParentNode();
 	void translate( Ogre::Vector3 &pos);
+	void roll(float value);
+	void pitch(float value);
+	void yaw(float value);
 	void setPosition(Ogre::Vector3 &pos);
 	void setOrientation(Ogre::Quaternion& orient);
 	void setVisible(bool isVisible);
@@ -25,11 +31,11 @@ private:
 	Ogre::SceneManager* _sceneManager;
 };
 
-class OgreCamera:public GameComponent
+class GCCamera:public GameComponent
 {
 public:	
-	OgreCamera(GameObject* game_object = NULL);
-	~OgreCamera();
+	GCCamera(GameObject* game_object = NULL);
+	~GCCamera();
 	void initCamera(const std::string& cameraName);
 	void onUpdate(float interval);
 	void onAttachObject();
@@ -40,12 +46,12 @@ private:
 	Ogre::SceneManager* _sceneManager;
 };
 
-class OgreEntity: public GameComponent
+class GCEntity: public GameComponent
 {
 public:
-	OgreEntity(GameObject* game_object = NULL);
-	OgreEntity(GameObject* game_object,const std::string& entityName,  const std::string& modelName);
-	~OgreEntity();
+	GCEntity(GameObject* game_object = NULL);
+	GCEntity(GameObject* game_object,const std::string& entityName,  const std::string& modelName);
+	~GCEntity();
 	void initEntity(const std::string& entityName,  const std::string& modelName);
 	void onUpdate(float interval);
 	void onAttachObject();

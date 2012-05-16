@@ -43,7 +43,7 @@ public:
 	GameObject(const std::string name = "default");
 	virtual ~GameObject();
 	void addGC(GameComponent* gameComponent);
-	GameComponent* getCC(TYPE_ID gc_type);
+	GameComponent* getGC(TYPE_ID gc_type);
 	GameComponent* getUserGC(TYPE_ID user_type);
 	void removeGC(TYPE_ID gc_type);
 	bool hasGC(TYPE_ID gc_type);

@@ -24,13 +24,17 @@ void push_object_vtable(lua_State *L, void* object);
 
 int daisy_object_set_lua_function(lua_State *L);
 
-int tolua_OIS_open(lua_State* tolua_S);
-
 void object_retain(lua_State *L, void *object, const char* object_typename);
 
 void object_release(lua_State *L, void *object);
 
 void appendlib(lua_State *L, const char* libname, const luaL_Reg *l);   
+
+
+int tolua_OIS_open(lua_State* tolua_S);
+int tolua_Ogre_open (lua_State* tolua_S);
+
+
 
 #define BEGIN_CHECK_STACK()\
 	int __stack_top = lua_gettop(L);

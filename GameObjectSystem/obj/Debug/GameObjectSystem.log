@@ -1,29 +1,32 @@
-﻿生成启动时间为 2012-05-13 20:31:03。
+﻿生成启动时间为 2012-05-16 19:55:07。
      1>项目“F:\GitRepositories\myworkspace\GameObjectSystem\GameObjectSystem\GameObjectSystem.vcxproj”在节点 2 上(build 个目标)。
      1>InitializeBuildStatus:
-         正在创建“obj\Debug\GameObjectSystem.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+         正在对“obj\Debug\GameObjectSystem.unsuccessfulbuild”执行 Touch 任务。
        ClCompile:
-         f:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IF:\boost_1_46_1 /IF:\dev\OGRE\build_MSVC\sdk/include /I"F:\tolua++-1.0.93/include" /IF:\Lua\5.1/include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\Debug\\" /Fd"obj\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GOSScriptManager.cpp
-         GOSScriptManager.cpp
-     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\gosscriptmanager.cpp(46): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+         f:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IF:\boost_1_46_1 /IF:\dev\OGRE\build_MSVC\sdk/include /I"F:\tolua++-1.0.93/include" /IF:\Lua\5.1/include /I"F:\BULLET\bullet_build_MSVC-2.80-rev2531/include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\Debug\\" /Fd"obj\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt PhysicsManager.cpp
+         PhysicsManager.cpp
        ManifestResourceCompile:
          所有输出均为最新。
        Link:
-         f:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"bin\Debug\\GameObjectSystem.exe" /INCREMENTAL /NOLOGO /LIBPATH:F:\dev\OGRE\build_MSVC\sdk\lib\debug /LIBPATH:F:\boost_1_46_1\stage\lib /LIBPATH:F:\Lua\5.1\lib /LIBPATH:"F:\tolua++-1.0.93\lib" OgreMain_d.lib OIS_d.lib winmm.lib toluaLib.lib lua5.1.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"obj\Debug\GameObjectSystem.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"F:\GitRepositories\myworkspace\GameObjectSystem\GameObjectSystem\bin\Debug\GameObjectSystem.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"bin\Debug\GameObjectSystem.lib" /MACHINE:X86 obj\Debug\GameObjectSystem.exe.embed.manifest.res
+         f:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"bin\Debug\\GameObjectSystem.exe" /INCREMENTAL /NOLOGO /LIBPATH:F:\dev\OGRE\build_MSVC\sdk\lib\debug /LIBPATH:F:\boost_1_46_1\stage\lib /LIBPATH:F:\Lua\5.1\lib /LIBPATH:"F:\tolua++-1.0.93\lib" /LIBPATH:"F:\BULLET\bullet_build_MSVC-2.80-rev2531\lib\debug" OgreMain_d.lib OIS_d.lib winmm.lib toluaLib.lib lua5.1.lib LinearMath_Debug.lib BulletCollision_Debug.lib BulletDynamics_Debug.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"obj\Debug\GameObjectSystem.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"F:\GitRepositories\myworkspace\GameObjectSystem\GameObjectSystem\bin\Debug\GameObjectSystem.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"bin\Debug\GameObjectSystem.lib" /MACHINE:X86 obj\Debug\GameObjectSystem.exe.embed.manifest.res
          obj\Debug\ControllerOISManager.obj
          obj\Debug\Debug.obj
          obj\Debug\Director.obj
          obj\Debug\GameObject.obj
          obj\Debug\GCnode.obj
+         obj\Debug\GCPhysicsBody.obj
          obj\Debug\GOSScriptManager.obj
          obj\Debug\lua_bindgs_manually.obj
-         obj\Debug\Lua_bindings.obj
+         obj\Debug\Lua_bindings_core.obj
+         obj\Debug\lua_bindings_ogre.obj
          obj\Debug\main.obj
+         obj\Debug\PhysicsManager.obj
          obj\Debug\UserComponent.obj
          obj\Debug\ViewOgreManager.obj
          toluaLib.lib(tolua_push.obj) : 找到 MSIL .netmodule 或使用 /GL 编译的模块；正在使用 /LTCG 重新启动链接；将 /LTCG 添加到链接命令行以改进链接器性能
      1>LINK : warning LNK4075: 忽略“/INCREMENTAL”(由于“/LTCG”规范)
      1>LINK : warning LNK4098: 默认库“MSVCRT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+     1>LINK : warning LNK4098: 默认库“LIBCMTD”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
          正在生成代码
          已完成代码的生成
        Manifest:
@@ -44,4 +47,4 @@
 
 生成成功。
 
-已用时间 00:00:31.41
+已用时间 00:00:36.57

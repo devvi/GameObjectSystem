@@ -20,6 +20,7 @@ bool ScriptManager::init()
 	L =  lua_open();
 	luaL_openlibs(L);
 	tolua_OIS_open(L);
+	tolua_Ogre_open(L);
 
 	GameComponentManager* gcm = GameComponentManager::getInstancePtr();
 	GameObjectManager* gom = GameObjectManager::getInstancePtr();

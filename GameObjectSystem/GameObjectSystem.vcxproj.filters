@@ -36,9 +36,6 @@
     <ClInclude Include="GCnode.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ViewOgreManager.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="GameObjectSystem.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -58,6 +55,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="GCUserComponent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GCPhysicsBody.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewOgreManager.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -83,9 +89,6 @@
     <ClCompile Include="GOSScriptManager.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Lua_bindings.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Debug.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -93,6 +96,18 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="lua_bindgs_manually.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="lua_bindings_ogre.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GCPhysicsBody.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua_bindings_core.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
