@@ -1,0 +1,1 @@
+require "type"gameComponentManager:registerUserComponent(PLAYER, "player")

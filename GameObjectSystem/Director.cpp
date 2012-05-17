@@ -33,7 +33,7 @@ bool Director::init()
 	_gameObjectManager = new GameObjectManager();
 	_physicsManager = new PhysicsManager();
 
-	if(_ogreManager->init() && _scriptManager->init() && _oisManager->init())
+	if(_ogreManager->init() &&_physicsManager->init()&& _scriptManager->init() && _oisManager->init())
 		return true;
 	else
 		return false;

@@ -1,10 +1,29 @@
-﻿生成启动时间为 2012-05-16 19:55:07。
+﻿生成启动时间为 2012-05-17 16:42:15。
      1>项目“F:\GitRepositories\myworkspace\GameObjectSystem\GameObjectSystem\GameObjectSystem.vcxproj”在节点 2 上(build 个目标)。
      1>InitializeBuildStatus:
-         正在对“obj\Debug\GameObjectSystem.unsuccessfulbuild”执行 Touch 任务。
+         正在创建“obj\Debug\GameObjectSystem.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        ClCompile:
-         f:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IF:\boost_1_46_1 /IF:\dev\OGRE\build_MSVC\sdk/include /I"F:\tolua++-1.0.93/include" /IF:\Lua\5.1/include /I"F:\BULLET\bullet_build_MSVC-2.80-rev2531/include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\Debug\\" /Fd"obj\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt PhysicsManager.cpp
+         f:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IF:\boost_1_46_1 /IF:\dev\OGRE\build_MSVC\sdk/include /I"F:\tolua++-1.0.93/include" /IF:\Lua\5.1/include /I"F:\BULLET\bullet_build_MSVC-2.80-rev2531/include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\Debug\\" /Fd"obj\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ControllerOISManager.cpp Director.cpp GOSScriptManager.cpp GameObject.cpp Lua_bindings_core.cpp PhysicsManager.cpp main.cpp
+         GOSScriptManager.cpp
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\gosscriptmanager.cpp(43): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+         正在生成代码...
+         正在编译...
+         main.cpp
          PhysicsManager.cpp
+         Lua_bindings_core.cpp
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(355): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(380): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(417): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(564): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(2363): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(3589): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(3745): warning C4102: “tolua_lerror”: 未引用的标签
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(3773): warning C4102: “tolua_lerror”: 未引用的标签
+         GameObject.cpp
+         Director.cpp
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\director.cpp(48): warning C4244: “=”: 从“time_t”转换到“float”，可能丢失数据
+         ControllerOISManager.cpp
+         正在生成代码...
        ManifestResourceCompile:
          所有输出均为最新。
        Link:
@@ -47,4 +66,4 @@
 
 生成成功。
 
-已用时间 00:00:36.57
+已用时间 00:01:52.08

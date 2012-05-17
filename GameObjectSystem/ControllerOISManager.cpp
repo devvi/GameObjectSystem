@@ -55,7 +55,7 @@ bool OISManager::keyPressed( const OIS::KeyEvent &arg )
 	}
 	
 	
-	lua_getglobal(_L, "onKeyPressed");						/* STACK: func? */
+	lua_getglobal(_L, "KeyPressed");						/* STACK: func? */
 	
 	if(lua_isfunction(_L, -1))								
 	{
@@ -92,7 +92,7 @@ bool OISManager::keyPressed( const OIS::KeyEvent &arg )
 
 bool OISManager::keyReleased( const OIS::KeyEvent &arg )
 {
-	lua_getglobal(_L, "onKeyReleased");						/* STACK: func? */
+	lua_getglobal(_L, "KeyReleased");						/* STACK: func? */
 
 	if(lua_isfunction(_L, -1))								
 	{
@@ -132,7 +132,7 @@ bool OISManager::keyReleased( const OIS::KeyEvent &arg )
 bool OISManager::mouseMoved( const OIS::MouseEvent &arg )
 {
 
-	lua_getglobal(_L, "onMouseMoved");						/* STACK: func? */
+	lua_getglobal(_L, "MouseMoved");						/* STACK: func? */
 
 	if(lua_isfunction(_L, -1))								
 	{
@@ -170,7 +170,7 @@ bool OISManager::mouseMoved( const OIS::MouseEvent &arg )
 
 bool OISManager::mousePressed( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
 {
-	lua_getglobal(_L, "onMousePressed");						/* STACK: func? */
+	lua_getglobal(_L, "MousePressed");						/* STACK: func? */
 
 	if(lua_isfunction(_L, -1))								
 	{
@@ -208,7 +208,7 @@ bool OISManager::mousePressed( const OIS::MouseEvent &arg, OIS::MouseButtonID id
 
 bool OISManager::mouseReleased( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
 {
-	lua_getglobal(_L, "onMouseReleased");						/* STACK: func? */
+	lua_getglobal(_L, "MouseReleased");						/* STACK: func? */
 
 	if(lua_isfunction(_L, -1))								
 	{

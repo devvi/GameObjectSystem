@@ -7,13 +7,6 @@ using namespace  DAISY;
 ScriptManager::ScriptManager(){}
 ScriptManager::~ScriptManager(){}
 
-static const struct luaL_Reg mylib[] = 
-{
-	{"am_set_music_update", /*am_set_music_update*/},
-
-	{NULL, NULL}
-};
-
 
 bool ScriptManager::init()
 {
@@ -21,6 +14,9 @@ bool ScriptManager::init()
 	luaL_openlibs(L);
 	tolua_OIS_open(L);
 	tolua_Ogre_open(L);
+	
+	// open manually lib
+	openManuallyLib();
 
 	GameComponentManager* gcm = GameComponentManager::getInstancePtr();
 	GameObjectManager* gom = GameObjectManager::getInstancePtr();
@@ -33,7 +29,7 @@ bool ScriptManager::init()
 
 	lua_setglobal(L,"gameObjectManager");
 
-	if(luaL_dofile(L, "first.lua"))
+	if(luaL_dofile(L, "script/first.lua"))
 	{
 		TRACE(lua_tostring(L, -1));
 	}
@@ -73,6 +69,28 @@ lua_State* ScriptManager::getLuaVM()
 {
 	return L;
 }
+
+static int al_toShowLua(lua_State *L)
+{
+
+	char buf[256];
+	const char* enter = "\n";
+	const char* bufR = lua_tostring(L, -1);
+	memset(buf, '0', sizeof(buf));
+	strcpy(buf, bufR);
+	//sprintf(buf, "%.2f\n", vec.x, vec.y);
+
+	OutputDebugString(buf);
+	OutputDebugString(enter);
+
+	return 0;
+}
+static const struct luaL_Reg mylib[] = 
+{
+	{"al_toShowLua", al_toShowLua},
+
+	{NULL, NULL}
+};
 
 void appendlib(lua_State *L, const char* libname, const luaL_Reg *l)
 {
@@ -411,6 +429,11 @@ int daisy_object_set_lua_function(lua_State *L)
 		lua_error(L);
 	}
 	return 0;
+}
+
+void ScriptManager::openManuallyLib()
+{
+	appendlib(L, NULL, mylib);
 }
 
 

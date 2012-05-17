@@ -31,6 +31,7 @@ void object_release(lua_State *L, void *object);
 void appendlib(lua_State *L, const char* libname, const luaL_Reg *l);   
 
 
+
 int tolua_OIS_open(lua_State* tolua_S);
 int tolua_Ogre_open (lua_State* tolua_S);
 
@@ -58,7 +59,8 @@ namespace DAISY{
 		void shutdown();
 		lua_State* getLuaVM();
 		static lua_State* L;
-
+	private:
+		void openManuallyLib();
 	};
 
 }

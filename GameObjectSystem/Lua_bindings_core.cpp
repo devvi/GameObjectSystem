@@ -3727,11 +3727,11 @@ static int tolua_OIS_daisy_object_set_lua_function00(lua_State* tolua_S)
 {
 #ifndef TOLUA_RELEASE
 	tolua_Error tolua_err;
-	if (
-		!tolua_isnoobj(tolua_S,1,&tolua_err)
-		)
-		goto tolua_lerror;
-	else
+// 	if (
+// 		!tolua_isnoobj(tolua_S,1,&tolua_err)
+// 		)
+// 		goto tolua_lerror;
+// 	else
 #endif
 	{
 		lua_State* L =  tolua_S;
@@ -3755,11 +3755,11 @@ static int tolua_OIS_daisy_object_remove_vtable00(lua_State* tolua_S)
 {
 #ifndef TOLUA_RELEASE
 	tolua_Error tolua_err;
-	if (
-		!tolua_isnoobj(tolua_S,1,&tolua_err)
-		)
-		goto tolua_lerror;
-	else
+// 	if (
+// 		!tolua_isnoobj(tolua_S,1,&tolua_err)
+// 		)
+// 		goto tolua_lerror;
+// 	else
 #endif
 	{
 		lua_State* L =  tolua_S;

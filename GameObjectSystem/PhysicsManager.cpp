@@ -92,10 +92,10 @@ bool PhysicsManager::update(float interval)
 						Ogre::Vector3 normal(normalOnB.getX(), normalOnB.getY(), normalOnB.getZ());
 						
 						if(lifeTime == 1)
-							daisy_object_call_lua(_L, gc, "startContacted", 5, gcOther, "PhysicsBody",
+							daisy_object_call_lua(_L, gc, "startContacted", 8, gcOther, "PhysicsBody",
 							posA, "Ogre::Vector3", posB, "Ogre::Vector3", normal, "Ogre::Vector3");
 						else if(lifeTime > 1 )
-							daisy_object_call_lua(_L, gc, "contacting", 5, gcOther, "PhysicsBody",
+							daisy_object_call_lua(_L, gc, "contacting", 8, gcOther, "PhysicsBody",
 							posA, "Ogre::Vector3", posB, "Ogre::Vector3", normal, "Ogre::Vector3");
 					}
 				}
