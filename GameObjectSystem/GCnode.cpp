@@ -45,7 +45,15 @@ void GCNode::attachNode(GCNode* child)
 	_node->addChild(child->getOgreNode());
 
 }
+void GCNode::attachOgreObject( Ogre::MovableObject* object )
+{
+	_node->attachObject(object);
+}
 
+void GCNode::detachOgreObject(Ogre::MovableObject* object)
+{
+	_node->detachObject(object);
+}
 void GCNode::detachFromParentNode()
 {
 	Ogre::SceneNode* parent = _node->getParentSceneNode();
@@ -334,3 +342,5 @@ void NodeComponentFactory::releaseGameComponent(GameComponent* gc)
 		delete gc;
 	}
 }
+
+

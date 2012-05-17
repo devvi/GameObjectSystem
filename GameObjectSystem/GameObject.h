@@ -11,7 +11,7 @@ public:
 	GameComponent(TYPE_ID gc_type = INVALID,  GameObject* game_object = NULL);
 	virtual ~GameComponent();
 
-
+	
 	virtual void onUpdate(float interval);
 	virtual void onAttachObject();
 	virtual void onDetachObject();
@@ -26,6 +26,7 @@ protected:
 	TYPE_ID _gc_type;
 	TYPE_ID _user_type;
 	GameObject* _game_object;
+	
 };
 
 class GameComponentFactory
@@ -50,6 +51,7 @@ public:
 	bool hasUserGC(TYPE_ID user_type);
 	void removeAllGC();
 	bool update();
+	void traverseUserFunction(const char* functionName);
 private:
 	std::string _name;
 	lua_State* _L;
@@ -65,6 +67,7 @@ public:
 	GameObject* getGameObject(const std::string& name);
 	void releaseGameObject(const std::string& name);
 	void releaseGameObject(GameObject* gameObject);
+	void callUserFunction(const char* functionName);   // for lua script call custom user function
 	void shutdown();
 	bool update();
 private:

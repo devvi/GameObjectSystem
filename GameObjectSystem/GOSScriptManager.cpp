@@ -12,7 +12,7 @@ bool ScriptManager::init()
 {
 	L =  lua_open();
 	luaL_openlibs(L);
-	tolua_OIS_open(L);
+	tolua_DAISYCORE_open(L);
 	tolua_Ogre_open(L);
 	
 	// open manually lib
@@ -20,6 +20,7 @@ bool ScriptManager::init()
 
 	GameComponentManager* gcm = GameComponentManager::getInstancePtr();
 	GameObjectManager* gom = GameObjectManager::getInstancePtr();
+	OgreManager* ogrem = OgreManager::getInstancePtr();
 
 	tolua_pushusertype(L, gcm, "GameComponentManager");
 
@@ -28,6 +29,10 @@ bool ScriptManager::init()
 	tolua_pushusertype(L, gom, "GameObjectManager");
 
 	lua_setglobal(L,"gameObjectManager");
+
+	tolua_pushusertype(L, ogrem, "OgreManager");
+
+	lua_setglobal(L, "ogreManager");
 
 	if(luaL_dofile(L, "script/first.lua"))
 	{
@@ -85,12 +90,7 @@ static int al_toShowLua(lua_State *L)
 
 	return 0;
 }
-static const struct luaL_Reg mylib[] = 
-{
-	{"al_toShowLua", al_toShowLua},
 
-	{NULL, NULL}
-};
 
 void appendlib(lua_State *L, const char* libname, const luaL_Reg *l)
 {
@@ -430,6 +430,13 @@ int daisy_object_set_lua_function(lua_State *L)
 	}
 	return 0;
 }
+
+static const struct luaL_Reg mylib[] = 
+{
+	{"al_toShowLua", al_toShowLua},
+	{"daisy_object_set_lua_function", daisy_object_set_lua_function},
+	{NULL, NULL}
+};
 
 void ScriptManager::openManuallyLib()
 {

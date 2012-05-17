@@ -146,17 +146,21 @@ void GameObject::removeGC(TYPE_ID gc_type)
 }
 bool GameObject::update()
 {
+	traverseUserFunction("onUpdate");
+
+	return true;
+}
+void GameObject::traverseUserFunction(const char* functionName)
+{
 	GameComponentList::const_iterator it = _gameComponentList.begin();
 	for(;it!= _gameComponentList.end();++it)
 	{
 		GameComponent* gc = (*it);
 		if(gc->getType() == USER)
-			daisy_object_call_lua(_L, (void*)gc, "onUpdate", 2, (void*)gc, "GameComponent");
+			daisy_object_call_lua(_L, (void*)gc, functionName, 2, (void*)gc, "GameComponent");
 	}
 
-	return true;
 }
-
 void GameObject::removeAllGC()
 {
 	while(!_gameComponentList.empty())
@@ -211,6 +215,7 @@ void GameObjectManager::releaseGameObject(const std::string& name)
 
 			delete (it->second);
 			_gameObjectMap.erase(it);
+			break;
 		}
 	}
 }
@@ -224,6 +229,8 @@ void GameObjectManager::releaseGameObject(GameObject* gameObject)
 		{
 			lua_State* L = ScriptManager::getInstance().getLuaVM();
 			object_release(L, (void *)it->second);
+
+			it->second->removeAllGC();
 
 			delete (it->second);
 			_gameObjectMap.erase(it);
@@ -240,6 +247,16 @@ bool GameObjectManager::update()
 		go->update();
 	}
 	return true;
+}
+
+void GameObjectManager::callUserFunction(const char* functionName)
+{
+	GameObjectMap::iterator it = _gameObjectMap.begin();
+	for(;it!= _gameObjectMap.end();it++)
+	{
+		GameObject* go = it->second;
+		go->traverseUserFunction(functionName);
+	}
 }
 void GameObjectManager::shutdown()
 {
@@ -342,3 +359,6 @@ void GameComponentFactory::releaseGameComponent(GameComponent* gc){}
 
 template<> GameObjectManager* Singleton<GameObjectManager>::_singleton = NULL;
 template<> GameComponentManager* Singleton<GameComponentManager>::_singleton = NULL;
+
+
+

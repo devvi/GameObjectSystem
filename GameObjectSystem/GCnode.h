@@ -16,6 +16,8 @@ public:
 	void onAttachObject();
 	void onDetachObject();
 	Ogre::SceneNode* getOgreNode();
+	void attachOgreObject(Ogre::MovableObject* object);
+	void detachOgreObject(Ogre::MovableObject* object);
 	void attachNode(GCNode* child);
 	void detachNode(GCNode* child);
 	void detachFromParentNode();

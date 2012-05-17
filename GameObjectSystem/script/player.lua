@@ -3,13 +3,19 @@ require "util"
 require "commandprocess"
 local oo = require "loop.simple"
 local tolua = tolua
+local tostring = tostring
 
 
 Player = oo.class{
 comp = nil
 }
+
 function Player:update(comp)
-	writeLog("player update comp: "..tostring(comp))
+	--[[local gcNode = comp:getGameObject():getGC(OGRENODE)
+	tolua.cast(gcNode, "GCNode")
+	
+	gcNode:translate( Ogre.Vector3(0, 0, 1/60));]]
+	
 end
 
 function Player:startContacted(comp, compOther, posSelf, posOther, normal)
@@ -22,6 +28,18 @@ end
 
 function Player:onKeyDown(arg)
 	writeLog("Player:onKeyDown  arg"..tostring(arg))
+	local go = self.comp:getGameObject()
+	if arg.key == KC_C then
+		self.phyBody = go:getGC(PHYBODY)
+		go:removeGC(PHYBODY)
+	elseif arg.key == KC_R then
+		if self.phyBody ~= nil then
+		go:addGC(self.phyBody)
+		end
+	elseif arg.key == KC_K then
+		local body = go:getGC(PHYBODY)
+		body:impulse(Ogre.Vector3(0, -10000, 0))
+	end
 end
 
 function Player:onKeyUp(arg)
@@ -39,7 +57,10 @@ end
 function Player:onMouseUp(arg, buttonId)
 	writeLog("Player:onMouseUp  arg"..tostring(arg))
 end
-
+function Player:destroySelf()
+	self.comp:getGameObject():removeAllGC()
+	gameObjectManager:releaseGameObject("player")
+end
 
 function Player:__init(comp)
 	local player = oo.rawnew(self, {})
@@ -50,6 +71,8 @@ function Player:__init(comp)
     comp.extra_data.manualVelocity = false
     comp.extra_data.velocity = {x = 0, y = 0, z = 0}
 	addInputListender(player)
+	player.comp = comp
+	player.go = comp:getGameObject()
 	
 	return player
 end
@@ -68,6 +91,7 @@ function createPlayer()
 	gcEntity:setMaterialName("CelRobot");
 	go:addGC(gcEntity)
 	
+	
 	local gcPhyBody = gameComponentManager:createGameComponent(PHYBODY)
 	tolua.cast(gcPhyBody, "PhysicsBody")
 	gcPhyBody:initBody(100, COL_PLAYER)
@@ -77,8 +101,10 @@ function createPlayer()
 	
 	local player = Player(gcUser)
 	daisy_object_set_lua_function(gcUser, "onUpdate", player.update)
-	daisy_object_set_lua_function(gcPhyBody, "startContacted", player.startContacted)
-	daisy_object_set_lua_function(gcPhyBody, "contacting", player.contacting)
-	al_toShowLua("debug")
+	--daisy_object_set_lua_function(gcPhyBody, "startContacted", player.startContacted)
+	--daisy_object_set_lua_function(gcPhyBody, "contacting", player.contacting)
+	
 	return player
 end
+
+	

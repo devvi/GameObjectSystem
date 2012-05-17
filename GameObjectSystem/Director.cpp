@@ -7,7 +7,7 @@ static NodeComponentFactory* nodeFactory = NULL;
 static OgreEntityComponentFactory* entityFactory = NULL;
 static CameraComponentFactory* cameraFactory = NULL;
 */
-const static float FIXED_UPDATE_FRAMERATE = 1/60; 
+const static float FIXED_UPDATE_FRAMERATE = 0.0167f; // 1/60
 
 Director::Director():
 _isExit(false),
@@ -42,6 +42,7 @@ bool Director::init()
 bool Director::run()
 {
 	_lastTime = timeGetTime();
+
 	while(true)
 	{
 		_currTime = timeGetTime();
@@ -60,6 +61,7 @@ bool Director::run()
 			_gameObjectManager->update();
 
 			_ogreManager->update(FIXED_UPDATE_FRAMERATE);
+			
 			_passedTime = 0;
 		}
 		if(_isExit)

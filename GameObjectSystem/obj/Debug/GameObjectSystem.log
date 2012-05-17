@@ -1,31 +1,282 @@
-﻿生成启动时间为 2012-05-17 16:42:15。
-     1>项目“F:\GitRepositories\myworkspace\GameObjectSystem\GameObjectSystem\GameObjectSystem.vcxproj”在节点 2 上(build 个目标)。
-     1>InitializeBuildStatus:
+﻿生成启动时间为 2012-05-17 21:12:00。
+     1>项目“F:\GitRepositories\myworkspace\GameObjectSystem\GameObjectSystem\GameObjectSystem.vcxproj”在节点 2 上(rebuild 个目标)。
+     1>_PrepareForClean:
+         正在删除文件“obj\Debug\GameObjectSystem.lastbuildstate”。
+       InitializeBuildStatus:
          正在创建“obj\Debug\GameObjectSystem.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        ClCompile:
-         f:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IF:\boost_1_46_1 /IF:\dev\OGRE\build_MSVC\sdk/include /I"F:\tolua++-1.0.93/include" /IF:\Lua\5.1/include /I"F:\BULLET\bullet_build_MSVC-2.80-rev2531/include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\Debug\\" /Fd"obj\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ControllerOISManager.cpp Director.cpp GOSScriptManager.cpp GameObject.cpp Lua_bindings_core.cpp PhysicsManager.cpp main.cpp
-         GOSScriptManager.cpp
-     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\gosscriptmanager.cpp(43): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-         正在生成代码...
-         正在编译...
-         main.cpp
+         f:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IF:\boost_1_46_1 /IF:\dev\OGRE\build_MSVC\sdk/include /I"F:\tolua++-1.0.93/include" /IF:\Lua\5.1/include /I"F:\BULLET\bullet_build_MSVC-2.80-rev2531/include" /ZI /nologo /W3 /WX- /Od /Oy- /D CODE_ANALYSIS /D WIN32 /D _DEBUG /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\Debug\\" /Fd"obj\Debug\vc100.pdb" /Gd /TP /analyze /errorReport:prompt ControllerOISManager.cpp Debug.cpp Director.cpp GameObject.cpp GCnode.cpp GCPhysicsBody.cpp GOSScriptManager.cpp lua_bindgs_manually.cpp Lua_bindings_core.cpp lua_bindings_ogre.cpp main.cpp PhysicsManager.cpp UserComponent.cpp ViewOgreManager.cpp
+         ViewOgreManager.cpp
+         UserComponent.cpp
          PhysicsManager.cpp
+         main.cpp
+         lua_bindings_ogre.cpp
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(10600): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(10644): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(10688): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(10773): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(10906): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(10952): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(12547): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(12579): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(13056): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(13090): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(14039): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(14105): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
          Lua_bindings_core.cpp
-     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(355): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
-     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(380): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
-     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(417): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
-     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(564): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
-     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(2363): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
-     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(3589): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
-     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(3745): warning C4102: “tolua_lerror”: 未引用的标签
-     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(3773): warning C4102: “tolua_lerror”: 未引用的标签
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(356): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(381): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(418): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(565): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(2467): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(3759): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+         lua_bindgs_manually.cpp
+         GOSScriptManager.cpp
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\gosscriptmanager.cpp(48): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+         GCPhysicsBody.cpp
+         GCnode.cpp
          GameObject.cpp
          Director.cpp
-     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\director.cpp(48): warning C4244: “=”: 从“time_t”转换到“float”，可能丢失数据
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\director.cpp(49): warning C4244: “=”: 从“time_t”转换到“float”，可能丢失数据
+         Debug.cpp
          ControllerOISManager.cpp
+         正在运行 C/C++ 代码分析...
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogrematrix4.h(165): warning C6385: 无效的数据: 访问“m”时，“64”个字节可读，但可能读取了“80”个字节: Lines: 164, 165
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogrematrix4.h(171): warning C6385: 无效的数据: 访问“m”时，“64”个字节可读，但可能读取了“80”个字节: Lines: 170, 171
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogreanimationstate.h(157): warning C6011: 正在取消 NULL 指针“mBlendMask”的引用: Lines: 156, 157
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\singleton.h(29): warning C6011: 正在取消 NULL 指针“protected: static class DAISY::OgreManager * DAISY::Singleton<class DAISY::OgreManager>::_singleton”的引用: Lines: 28, 29
+                 f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\singleton.h(27): 编译类 模板 成员函数“DAISY::OgreManager &DAISY::Singleton<T>::getInstance(void)”时
+                 with
+                 [
+                     T=DAISY::OgreManager
+                 ]
+                 f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\ViewOgreManager.h(8): 参见对正在编译的类 模板 实例化“DAISY::Singleton<T>”的引用
+                 with
+                 [
+                     T=DAISY::OgreManager
+                 ]
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\singleton.h(29): warning C6011: 正在取消 NULL 指针“protected: static class DAISY::Director * DAISY::Singleton<class DAISY::Director>::_singleton”的引用: Lines: 28, 29
+                 f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\singleton.h(27): 编译类 模板 成员函数“DAISY::Director &DAISY::Singleton<T>::getInstance(void)”时
+                 with
+                 [
+                     T=DAISY::Director
+                 ]
+                 f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\Director.h(8): 参见对正在编译的类 模板 实例化“DAISY::Singleton<T>”的引用
+                 with
+                 [
+                     T=DAISY::Director
+                 ]
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\singleton.h(29): warning C6011: 正在取消 NULL 指针“protected: static class DAISY::ScriptManager * DAISY::Singleton<class DAISY::ScriptManager>::_singleton”的引用: Lines: 28, 29
+                 f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\singleton.h(27): 编译类 模板 成员函数“DAISY::ScriptManager &DAISY::Singleton<T>::getInstance(void)”时
+                 with
+                 [
+                     T=DAISY::ScriptManager
+                 ]
+                 f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\GOSScriptManager.h(53): 参见对正在编译的类 模板 实例化“DAISY::Singleton<T>”的引用
+                 with
+                 [
+                     T=DAISY::ScriptManager
+                 ]
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogrematrix4.h(165): warning C6385: 无效的数据: 访问“m”时，“64”个字节可读，但可能读取了“80”个字节: Lines: 164, 165
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogrematrix4.h(171): warning C6385: 无效的数据: 访问“m”时，“64”个字节可读，但可能读取了“80”个字节: Lines: 170, 171
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogreanimationstate.h(157): warning C6011: 正在取消 NULL 指针“mBlendMask”的引用: Lines: 156, 157
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(117): warning C6385: 无效的数据: 访问“m_pointCache”时，“1152”个字节可读，但可能读取了“301985568”个字节: Lines: 116, 117
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(123): warning C6385: 无效的数据: 访问“m_pointCache”时，“1152”个字节可读，但可能读取了“301985568”个字节: Lines: 122, 123
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(160): warning C6385: 无效的数据: 访问“m_pointCache”时，“1152”个字节可读，但可能读取了“301985568”个字节: Lines: 140, 142, 144, 160
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(146): warning C6386: 缓冲区溢出: 访问“m_pointCache”时，“1152”个字节可写，但可能写入了“301985568”个字节: Lines: 140, 142, 144, 146
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\collisiondispatch\btmanifoldresult.h(102): warning C6011: 正在取消 NULL 指针“m_manifoldPtr”的引用: Lines: 101, 102
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\linearmath\btserializer.h(173): warning C6011: 正在取消 NULL 指针“ptr”的引用: Lines: 172, 173
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\linearmath\btserializer.h(585): warning C6011: 正在取消 NULL 指针“namePtr”的引用: Lines: 584, 585
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\singleton.h(29): warning C6011: 正在取消 NULL 指针“protected: static class DAISY::GameComponentManager * DAISY::Singleton<class DAISY::GameComponentManager>::_singleton”的引用: Lines: 28, 29
+                 f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\singleton.h(27): 编译类 模板 成员函数“DAISY::GameComponentManager &DAISY::Singleton<T>::getInstance(void)”时
+                 with
+                 [
+                     T=DAISY::GameComponentManager
+                 ]
+                 f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\GameObject.h(78): 参见对正在编译的类 模板 实例化“DAISY::Singleton<T>”的引用
+                 with
+                 [
+                     T=DAISY::GameComponentManager
+                 ]
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\singleton.h(29): warning C6011: 正在取消 NULL 指针“protected: static class DAISY::ScriptManager * DAISY::Singleton<class DAISY::ScriptManager>::_singleton”的引用: Lines: 28, 29
+                 f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\singleton.h(27): 编译类 模板 成员函数“DAISY::ScriptManager &DAISY::Singleton<T>::getInstance(void)”时
+                 with
+                 [
+                     T=DAISY::ScriptManager
+                 ]
+                 f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\GOSScriptManager.h(53): 参见对正在编译的类 模板 实例化“DAISY::Singleton<T>”的引用
+                 with
+                 [
+                     T=DAISY::ScriptManager
+                 ]
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogrematrix4.h(165): warning C6385: 无效的数据: 访问“m”时，“64”个字节可读，但可能读取了“80”个字节: Lines: 164, 165
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogrematrix4.h(171): warning C6385: 无效的数据: 访问“m”时，“64”个字节可读，但可能读取了“80”个字节: Lines: 170, 171
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogreanimationstate.h(157): warning C6011: 正在取消 NULL 指针“mBlendMask”的引用: Lines: 156, 157
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\gcnode.cpp(42): warning C6011: 正在取消 NULL 指针“child”的引用: Lines: 38, 42
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\gcnode.cpp(70): warning C6011: 正在取消 NULL 指针“child”的引用: Lines: 68, 70
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\singleton.h(29): warning C6011: 正在取消 NULL 指针“protected: static class DAISY::OgreManager * DAISY::Singleton<class DAISY::OgreManager>::_singleton”的引用: Lines: 28, 29
+                 f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\singleton.h(27): 编译类 模板 成员函数“DAISY::OgreManager &DAISY::Singleton<T>::getInstance(void)”时
+                 with
+                 [
+                     T=DAISY::OgreManager
+                 ]
+                 f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\ViewOgreManager.h(8): 参见对正在编译的类 模板 实例化“DAISY::Singleton<T>”的引用
+                 with
+                 [
+                     T=DAISY::OgreManager
+                 ]
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(117): warning C6385: 无效的数据: 访问“m_pointCache”时，“1152”个字节可读，但可能读取了“301985568”个字节: Lines: 116, 117
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(123): warning C6385: 无效的数据: 访问“m_pointCache”时，“1152”个字节可读，但可能读取了“301985568”个字节: Lines: 122, 123
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(160): warning C6385: 无效的数据: 访问“m_pointCache”时，“1152”个字节可读，但可能读取了“301985568”个字节: Lines: 140, 142, 144, 160
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(146): warning C6386: 缓冲区溢出: 访问“m_pointCache”时，“1152”个字节可写，但可能写入了“301985568”个字节: Lines: 140, 142, 144, 146
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\collisiondispatch\btmanifoldresult.h(102): warning C6011: 正在取消 NULL 指针“m_manifoldPtr”的引用: Lines: 101, 102
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\linearmath\btserializer.h(173): warning C6011: 正在取消 NULL 指针“ptr”的引用: Lines: 172, 173
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\linearmath\btserializer.h(585): warning C6011: 正在取消 NULL 指针“namePtr”的引用: Lines: 584, 585
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogrematrix4.h(165): warning C6385: 无效的数据: 访问“m”时，“64”个字节可读，但可能读取了“80”个字节: Lines: 164, 165
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogrematrix4.h(171): warning C6385: 无效的数据: 访问“m”时，“64”个字节可读，但可能读取了“80”个字节: Lines: 170, 171
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogreanimationstate.h(157): warning C6011: 正在取消 NULL 指针“mBlendMask”的引用: Lines: 156, 157
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogrematrix4.h(165): warning C6385: 无效的数据: 访问“m”时，“64”个字节可读，但可能读取了“80”个字节: Lines: 164, 165
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogrematrix4.h(171): warning C6385: 无效的数据: 访问“m”时，“64”个字节可读，但可能读取了“80”个字节: Lines: 170, 171
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogreanimationstate.h(157): warning C6011: 正在取消 NULL 指针“mBlendMask”的引用: Lines: 156, 157
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(117): warning C6385: 无效的数据: 访问“m_pointCache”时，“1152”个字节可读，但可能读取了“301985568”个字节: Lines: 116, 117
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(123): warning C6385: 无效的数据: 访问“m_pointCache”时，“1152”个字节可读，但可能读取了“301985568”个字节: Lines: 122, 123
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(160): warning C6385: 无效的数据: 访问“m_pointCache”时，“1152”个字节可读，但可能读取了“301985568”个字节: Lines: 140, 142, 144, 160
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(146): warning C6386: 缓冲区溢出: 访问“m_pointCache”时，“1152”个字节可写，但可能写入了“301985568”个字节: Lines: 140, 142, 144, 146
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\collisiondispatch\btmanifoldresult.h(102): warning C6011: 正在取消 NULL 指针“m_manifoldPtr”的引用: Lines: 101, 102
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\linearmath\btserializer.h(173): warning C6011: 正在取消 NULL 指针“ptr”的引用: Lines: 172, 173
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\linearmath\btserializer.h(585): warning C6011: 正在取消 NULL 指针“namePtr”的引用: Lines: 584, 585
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogrematrix4.h(165): warning C6385: 无效的数据: 访问“m”时，“64”个字节可读，但可能读取了“80”个字节: Lines: 164, 165
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogrematrix4.h(171): warning C6385: 无效的数据: 访问“m”时，“64”个字节可读，但可能读取了“80”个字节: Lines: 170, 171
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogreanimationstate.h(157): warning C6011: 正在取消 NULL 指针“mBlendMask”的引用: Lines: 156, 157
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(117): warning C6385: 无效的数据: 访问“m_pointCache”时，“1152”个字节可读，但可能读取了“301985568”个字节: Lines: 116, 117
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(123): warning C6385: 无效的数据: 访问“m_pointCache”时，“1152”个字节可读，但可能读取了“301985568”个字节: Lines: 122, 123
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(160): warning C6385: 无效的数据: 访问“m_pointCache”时，“1152”个字节可读，但可能读取了“301985568”个字节: Lines: 140, 142, 144, 160
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(146): warning C6386: 缓冲区溢出: 访问“m_pointCache”时，“1152”个字节可写，但可能写入了“301985568”个字节: Lines: 140, 142, 144, 146
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\collisiondispatch\btmanifoldresult.h(102): warning C6011: 正在取消 NULL 指针“m_manifoldPtr”的引用: Lines: 101, 102
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\linearmath\btserializer.h(173): warning C6011: 正在取消 NULL 指针“ptr”的引用: Lines: 172, 173
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\linearmath\btserializer.h(585): warning C6011: 正在取消 NULL 指针“namePtr”的引用: Lines: 584, 585
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(264): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 260, 262, 264
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(280): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 273, 275, 276, 277, 278, 280
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(402): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 398, 400, 402
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(418): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 411, 413, 414, 415, 416, 418
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(489): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 485, 487, 489
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(505): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 498, 500, 501, 502, 503, 505
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(519): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 515, 517, 519
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(535): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 528, 530, 531, 532, 533, 535
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(549): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 545, 547, 549
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(565): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 558, 560, 561, 562, 563, 565
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(667): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 663, 665, 667
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(683): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 676, 678, 679, 680, 681, 683
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(697): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 693, 695, 697
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(713): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 706, 708, 709, 710, 711, 713
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(727): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 723, 725, 727
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(743): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 736, 738, 739, 740, 741, 743
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(757): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 753, 755, 757
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(773): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 766, 768, 769, 770, 771, 773
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(787): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 783, 785, 787
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(803): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 796, 798, 799, 800, 801, 803
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(817): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 813, 815, 817
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(833): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 826, 828, 829, 830, 831, 833
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(1006): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 1002, 1004, 1006
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(1117): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 1113, 1115, 1117
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(1130): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 1126, 1128, 1130
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_core.cpp(1146): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 1139, 1141, 1142, 1143, 1144, 1146
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogrematrix4.h(165): warning C6385: 无效的数据: 访问“m”时，“64”个字节可读，但可能读取了“80”个字节: Lines: 164, 165
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogrematrix4.h(171): warning C6385: 无效的数据: 访问“m”时，“64”个字节可读，但可能读取了“80”个字节: Lines: 170, 171
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogreanimationstate.h(157): warning C6011: 正在取消 NULL 指针“mBlendMask”的引用: Lines: 156, 157
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(5378): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 5374, 5376, 5378
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(5394): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 5387, 5389, 5390, 5391, 5392, 5394
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(5408): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 5404, 5406, 5408
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(5424): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 5417, 5419, 5420, 5421, 5422, 5424
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(5438): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 5434, 5436, 5438
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(5454): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 5447, 5449, 5450, 5451, 5452, 5454
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(7176): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 7172, 7174, 7176
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(7192): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 7185, 7187, 7188, 7189, 7190, 7192
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(7206): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 7202, 7204, 7206
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(7222): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 7215, 7217, 7218, 7219, 7220, 7222
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(8502): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 8498, 8500, 8502
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(8518): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 8511, 8513, 8514, 8515, 8516, 8518
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(8532): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 8528, 8530, 8532
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(8548): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 8541, 8543, 8544, 8545, 8546, 8548
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(8562): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 8558, 8560, 8562
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(8578): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 8571, 8573, 8574, 8575, 8576, 8578
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(8592): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 8588, 8590, 8592
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(8608): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 8601, 8603, 8604, 8605, 8606, 8608
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(11012): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 11008, 11010, 11012
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(11028): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 11021, 11023, 11024, 11025, 11026, 11028
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(11042): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 11038, 11040, 11042
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(11058): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 11051, 11053, 11054, 11055, 11056, 11058
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(11072): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 11068, 11070, 11072
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(11088): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 11081, 11083, 11084, 11085, 11086, 11088
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(11102): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 11098, 11100, 11102
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(11118): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 11111, 11113, 11114, 11115, 11116, 11118
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(11293): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 11289, 11291, 11293
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(11309): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 11302, 11304, 11305, 11306, 11307, 11309
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(11323): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 11319, 11321, 11323
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(11339): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 11332, 11334, 11335, 11336, 11337, 11339
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(11353): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 11349, 11351, 11353
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(11369): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 11362, 11364, 11365, 11366, 11367, 11369
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(11383): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 11379, 11381, 11383
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\lua_bindings_ogre.cpp(11399): warning C6011: 正在取消 NULL 指针“self”的引用: Lines: 11392, 11394, 11395, 11396, 11397, 11399
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogrematrix4.h(165): warning C6385: 无效的数据: 访问“m”时，“64”个字节可读，但可能读取了“80”个字节: Lines: 164, 165
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogrematrix4.h(171): warning C6385: 无效的数据: 访问“m”时，“64”个字节可读，但可能读取了“80”个字节: Lines: 170, 171
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogreanimationstate.h(157): warning C6011: 正在取消 NULL 指针“mBlendMask”的引用: Lines: 156, 157
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(117): warning C6385: 无效的数据: 访问“m_pointCache”时，“1152”个字节可读，但可能读取了“301985568”个字节: Lines: 116, 117
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(123): warning C6385: 无效的数据: 访问“m_pointCache”时，“1152”个字节可读，但可能读取了“301985568”个字节: Lines: 122, 123
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(160): warning C6385: 无效的数据: 访问“m_pointCache”时，“1152”个字节可读，但可能读取了“301985568”个字节: Lines: 140, 142, 144, 160
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(146): warning C6386: 缓冲区溢出: 访问“m_pointCache”时，“1152”个字节可写，但可能写入了“301985568”个字节: Lines: 140, 142, 144, 146
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\collisiondispatch\btmanifoldresult.h(102): warning C6011: 正在取消 NULL 指针“m_manifoldPtr”的引用: Lines: 101, 102
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\linearmath\btserializer.h(173): warning C6011: 正在取消 NULL 指针“ptr”的引用: Lines: 172, 173
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\linearmath\btserializer.h(585): warning C6011: 正在取消 NULL 指针“namePtr”的引用: Lines: 584, 585
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\singleton.h(29): warning C6011: 正在取消 NULL 指针“protected: static class DAISY::GameObjectManager * DAISY::Singleton<class DAISY::GameObjectManager>::_singleton”的引用: Lines: 28, 29
+                 f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\singleton.h(27): 编译类 模板 成员函数“DAISY::GameObjectManager &DAISY::Singleton<T>::getInstance(void)”时
+                 with
+                 [
+                     T=DAISY::GameObjectManager
+                 ]
+                 f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\gameObject.h(62): 参见对正在编译的类 模板 实例化“DAISY::Singleton<T>”的引用
+                 with
+                 [
+                     T=DAISY::GameObjectManager
+                 ]
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\singleton.h(29): warning C6011: 正在取消 NULL 指针“protected: static class DAISY::GameComponentManager * DAISY::Singleton<class DAISY::GameComponentManager>::_singleton”的引用: Lines: 28, 29
+                 f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\singleton.h(27): 编译类 模板 成员函数“DAISY::GameComponentManager &DAISY::Singleton<T>::getInstance(void)”时
+                 with
+                 [
+                     T=DAISY::GameComponentManager
+                 ]
+                 f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\gameObject.h(78): 参见对正在编译的类 模板 实例化“DAISY::Singleton<T>”的引用
+                 with
+                 [
+                     T=DAISY::GameComponentManager
+                 ]
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(117): warning C6385: 无效的数据: 访问“m_pointCache”时，“1152”个字节可读，但可能读取了“301985568”个字节: Lines: 116, 117
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(123): warning C6385: 无效的数据: 访问“m_pointCache”时，“1152”个字节可读，但可能读取了“301985568”个字节: Lines: 122, 123
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(160): warning C6385: 无效的数据: 访问“m_pointCache”时，“1152”个字节可读，但可能读取了“301985568”个字节: Lines: 140, 142, 144, 160
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\narrowphasecollision\btpersistentmanifold.h(146): warning C6386: 缓冲区溢出: 访问“m_pointCache”时，“1152”个字节可写，但可能写入了“301985568”个字节: Lines: 140, 142, 144, 146
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\bulletcollision\collisiondispatch\btmanifoldresult.h(102): warning C6011: 正在取消 NULL 指针“m_manifoldPtr”的引用: Lines: 101, 102
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\linearmath\btserializer.h(173): warning C6011: 正在取消 NULL 指针“ptr”的引用: Lines: 172, 173
+     1>f:\bullet\bullet_build_msvc-2.80-rev2531\include\linearmath\btserializer.h(585): warning C6011: 正在取消 NULL 指针“namePtr”的引用: Lines: 584, 585
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogrematrix4.h(165): warning C6385: 无效的数据: 访问“m”时，“64”个字节可读，但可能读取了“80”个字节: Lines: 164, 165
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogrematrix4.h(171): warning C6385: 无效的数据: 访问“m”时，“64”个字节可读，但可能读取了“80”个字节: Lines: 170, 171
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\physicsmanager.cpp(118): warning C6011: 正在取消 NULL 指针“body”的引用: Lines: 113, 114, 116, 117, 118
+     1>f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\singleton.h(29): warning C6011: 正在取消 NULL 指针“protected: static class DAISY::ScriptManager * DAISY::Singleton<class DAISY::ScriptManager>::_singleton”的引用: Lines: 28, 29
+                 f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\singleton.h(27): 编译类 模板 成员函数“DAISY::ScriptManager &DAISY::Singleton<T>::getInstance(void)”时
+                 with
+                 [
+                     T=DAISY::ScriptManager
+                 ]
+                 f:\gitrepositories\myworkspace\gameobjectsystem\gameobjectsystem\GOSScriptManager.h(53): 参见对正在编译的类 模板 实例化“DAISY::Singleton<T>”的引用
+                 with
+                 [
+                     T=DAISY::ScriptManager
+                 ]
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogrematrix4.h(165): warning C6385: 无效的数据: 访问“m”时，“64”个字节可读，但可能读取了“80”个字节: Lines: 164, 165
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogrematrix4.h(171): warning C6385: 无效的数据: 访问“m”时，“64”个字节可读，但可能读取了“80”个字节: Lines: 170, 171
+     1>f:\dev\ogre\build_msvc\sdk\include\ogre\ogreanimationstate.h(157): warning C6011: 正在取消 NULL 指针“mBlendMask”的引用: Lines: 156, 157
          正在生成代码...
        ManifestResourceCompile:
-         所有输出均为最新。
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"obj\Debug\GameObjectSystem.exe.embed.manifest.res" obj\Debug\GameObjectSystem_manifest.rc 
        Link:
          f:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"bin\Debug\\GameObjectSystem.exe" /INCREMENTAL /NOLOGO /LIBPATH:F:\dev\OGRE\build_MSVC\sdk\lib\debug /LIBPATH:F:\boost_1_46_1\stage\lib /LIBPATH:F:\Lua\5.1\lib /LIBPATH:"F:\tolua++-1.0.93\lib" /LIBPATH:"F:\BULLET\bullet_build_MSVC-2.80-rev2531\lib\debug" OgreMain_d.lib OIS_d.lib winmm.lib toluaLib.lib lua5.1.lib LinearMath_Debug.lib BulletCollision_Debug.lib BulletDynamics_Debug.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"obj\Debug\GameObjectSystem.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"F:\GitRepositories\myworkspace\GameObjectSystem\GameObjectSystem\bin\Debug\GameObjectSystem.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"bin\Debug\GameObjectSystem.lib" /MACHINE:X86 obj\Debug\GameObjectSystem.exe.embed.manifest.res
          obj\Debug\ControllerOISManager.obj
@@ -49,11 +300,36 @@
          正在生成代码
          已完成代码的生成
        Manifest:
+         正在删除文件“obj\Debug\GameObjectSystem.exe.embed.manifest”。
          C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"obj\Debug\GameObjectSystem.exe.embed.manifest" /manifest obj\Debug\GameObjectSystem.exe.intermediate.manifest
-         所有输出均为最新。
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"obj\Debug\GameObjectSystem.exe.embed.manifest.res" obj\Debug\GameObjectSystem_manifest.rc 
        LinkEmbedManifest:
-         所有输出均为最新。
+         f:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"bin\Debug\\GameObjectSystem.exe" /INCREMENTAL /NOLOGO /LIBPATH:F:\dev\OGRE\build_MSVC\sdk\lib\debug /LIBPATH:F:\boost_1_46_1\stage\lib /LIBPATH:F:\Lua\5.1\lib /LIBPATH:"F:\tolua++-1.0.93\lib" /LIBPATH:"F:\BULLET\bullet_build_MSVC-2.80-rev2531\lib\debug" OgreMain_d.lib OIS_d.lib winmm.lib toluaLib.lib lua5.1.lib LinearMath_Debug.lib BulletCollision_Debug.lib BulletDynamics_Debug.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"obj\Debug\GameObjectSystem.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"F:\GitRepositories\myworkspace\GameObjectSystem\GameObjectSystem\bin\Debug\GameObjectSystem.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"bin\Debug\GameObjectSystem.lib" /MACHINE:X86 obj\Debug\GameObjectSystem.exe.embed.manifest.res
+         obj\Debug\ControllerOISManager.obj
+         obj\Debug\Debug.obj
+         obj\Debug\Director.obj
+         obj\Debug\GameObject.obj
+         obj\Debug\GCnode.obj
+         obj\Debug\GCPhysicsBody.obj
+         obj\Debug\GOSScriptManager.obj
+         obj\Debug\lua_bindgs_manually.obj
+         obj\Debug\Lua_bindings_core.obj
+         obj\Debug\lua_bindings_ogre.obj
+         obj\Debug\main.obj
+         obj\Debug\PhysicsManager.obj
+         obj\Debug\UserComponent.obj
+         obj\Debug\ViewOgreManager.obj
+         toluaLib.lib(tolua_push.obj) : 找到 MSIL .netmodule 或使用 /GL 编译的模块；正在使用 /LTCG 重新启动链接；将 /LTCG 添加到链接命令行以改进链接器性能
+     1>LINK : warning LNK4075: 忽略“/INCREMENTAL”(由于“/LTCG”规范)
+     1>LINK : warning LNK4098: 默认库“MSVCRT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+     1>LINK : warning LNK4098: 默认库“LIBCMTD”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+         正在生成代码
+         已完成代码的生成
          GameObjectSystem.vcxproj -> F:\GitRepositories\myworkspace\GameObjectSystem\GameObjectSystem\bin\Debug\GameObjectSystem.exe
+       RunCodeAnalysis:
+         正在运行代码分析...
+         f:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe  /outputCulture:2052 /out:"bin\Debug\GameObjectSystem.exe.CodeAnalysisLog.xml" /file:"bin\Debug\GameObjectSystem.exe" /ruleSet:"=MinimumRecommendedRules.ruleset" /rulesetdirectory:"f:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets" /rule:"-f:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules" /searchgac /ignoreinvalidtargets /forceoutput /successfile /ignoregeneratedcode /saveMessagesToReport:Active /timeout:120 
+         代码分析完成 -- 0 个错误，0 个警告
        PostBuildEvent:
          Description: Copying exe to samples bin directory ...
          copy "bin\Debug\\GameObjectSystem.exe" "F:\dev\OGRE\build_MSVC\sdk\Bin\Debug"
@@ -62,8 +338,8 @@
        FinalizeBuildStatus:
          正在删除文件“obj\Debug\GameObjectSystem.unsuccessfulbuild”。
          正在对“obj\Debug\GameObjectSystem.lastbuildstate”执行 Touch 任务。
-     1>已完成生成项目“F:\GitRepositories\myworkspace\GameObjectSystem\GameObjectSystem\GameObjectSystem.vcxproj”(build 个目标)的操作。
+     1>已完成生成项目“F:\GitRepositories\myworkspace\GameObjectSystem\GameObjectSystem\GameObjectSystem.vcxproj”(rebuild 个目标)的操作。
 
 生成成功。
 
-已用时间 00:01:52.08
+已用时间 00:06:18.97

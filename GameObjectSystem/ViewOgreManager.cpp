@@ -183,3 +183,46 @@ bool OgreManager::init()
 }
 
 template<> OgreManager* Singleton<OgreManager>::_singleton = NULL;
+
+Ogre::Camera* DAISY::OgreManager::createCamera(std::string& name)
+{
+	return _sceneManager->createCamera(name);
+}
+
+void DAISY::OgreManager::setCurrentCamera( Ogre::Camera* camera )
+{
+	_viewport->setCamera(camera);
+}
+
+void DAISY::OgreManager::setAmbientColor( Ogre::ColourValue& color )
+{
+	_sceneManager->setAmbientLight(color);
+}
+
+void DAISY::OgreManager::setBackGroundColor( Ogre::ColourValue& color )
+{
+	_viewport->setBackgroundColour(color);
+}
+
+void DAISY::OgreManager::destroyCamera( Ogre::Camera* camera )
+{
+	_sceneManager->destroyCamera(camera);
+}
+
+void DAISY::OgreManager::destroyCamera( std::string& name )
+{
+	_sceneManager->destroyCamera(name);
+}
+
+Ogre::Light* DAISY::OgreManager::createLight( Ogre::Light::LightTypes type )
+{
+	Ogre::Light* light = _sceneManager->createLight();
+	light->setType(type);
+	return light;
+}
+
+void DAISY::OgreManager::destroyLight( Ogre::Light* light )
+{
+	_sceneManager->destroyLight(light);
+}
+

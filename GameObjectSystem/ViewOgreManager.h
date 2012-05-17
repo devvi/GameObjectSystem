@@ -16,6 +16,17 @@ namespace DAISY {
 		bool update(float interval);
 		bool init();
 		void shutdown();
+	// for script
+	public:
+		Ogre::Camera* createCamera(std::string& name);
+		void destroyCamera(Ogre::Camera* camera);
+		void destroyCamera(std::string& name);
+		void setAmbientColor(Ogre::ColourValue& color);
+		void setBackGroundColor(Ogre::ColourValue& color);
+		void setCurrentCamera(Ogre::Camera* camera);
+		Ogre::Light* createLight(Ogre::Light::LightTypes type);
+		void destroyLight(Ogre::Light* light);
+
 	private:
 		bool configure();
 		void setupResources();
