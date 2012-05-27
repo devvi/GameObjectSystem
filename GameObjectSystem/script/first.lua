@@ -16,7 +16,7 @@ local tolua = tolua
 al_toShowLua(tostring(ogreManager))
 
 sceneDirector = SceneDirector()
-sceneDirector:addScene(scene1)
+sceneDirector:addScene(sceneInit)
 
 
 

@@ -9,6 +9,7 @@ _rigidBody(NULL),
 _collisionObject(NULL),
 _colShape (new btBoxShape(btVector3(1, 1, 1))),
 _phyWorld(PhysicsManager::getInstancePtr()->getWorld()),
+_colFlg(CF_DEFAULT),
 _mass(0),
 _collisionID(0),
 _hasCallBack(false)
@@ -26,10 +27,11 @@ PhysicsBody::~PhysicsBody()
 	}
 };
 
-void PhysicsBody::initBody(float mass, unsigned int id)
+void PhysicsBody::initBody(float mass, unsigned int id, CollisionFlags flg)
 {
 	_mass = mass;
 	_collisionID = id;
+	_colFlg = flg;
 }
 
 void PhysicsBody::refreshBodyForNode()
@@ -45,18 +47,23 @@ void PhysicsBody::refreshBodyForNode()
 
 		}
 
+		Ogre::AxisAlignedBox box;
 		// then see if object has entitry component,if it does,change the size of collision shap adapted to entity 
 		if(_game_object->hasGC(RENDER_ENTITY))
 		{
 			GCEntity* entity = (GCEntity*)_game_object->getGC(RENDER_ENTITY);
 			Ogre::Entity* ogreEntity = entity->getOgreEntity();
-			Ogre::AxisAlignedBox box = ogreEntity->getBoundingBox();
-			Ogre::Vector3 boxSize = box.getSize();
-
-			// set the size of collision shap,the value need to pass is the half of real size
-			_colShape->setLocalScaling(btVector3(boxSize.x/2, boxSize.y/2, boxSize.z/2));
+			box = ogreEntity->getBoundingBox();
+		}else
+		{	// handle the situation where there is no entity component just ogrenode eg. the terrain formed by only manually mesh
+			Ogre::SceneNode* ogreNode = ((GCNode*)_game_object->getGC(OGRENODE))->getOgreNode();
+			box = ogreNode->_getWorldAABB();
 		}
 
+		Ogre::Vector3 boxSize = box.getSize();
+
+		// set the size of collision shap,the value need to pass is the half of real size
+		_colShape->setLocalScaling(btVector3(boxSize.x/2, boxSize.y/2, boxSize.z/2));
 
 		GCNode* node = (GCNode*) _game_object->getGC(OGRENODE);
 		Ogre::SceneNode* ogreNode = node->getOgreNode();
@@ -68,9 +75,12 @@ void PhysicsBody::refreshBodyForNode()
 		if (isDynamic)
 			_colShape->calculateLocalInertia(_mass,localInertia);
 		
+			
+		
 		Ogre::Vector3 orignalPos = ogreNode->_getDerivedPosition();
+		Ogre::Quaternion orient = ogreNode->_getDerivedOrientation();
 		btTransform trans;
-		trans.setIdentity();
+		trans.setRotation(btQuaternion(orient.x, orient.y, orient.z, orient.w));
 		trans.setOrigin(btVector3(orignalPos.x, orignalPos.y, orignalPos.z));
 		//using motionstate is recommended, it provides interpolation capabilities, and only synchronizes 'active' objects
 		btMotionState* myMotionState = new OgreMostionState(trans, ogreNode);
@@ -82,6 +92,11 @@ void PhysicsBody::refreshBodyForNode()
 		// set the reference of this component inorder to let physics manager pass collision message 
 		_rigidBody->setUserPointer( (void*)this);
 		
+		if(_colFlg != CF_DEFAULT)
+		{
+			_rigidBody->setCollisionFlags(_rigidBody->getCollisionFlags()|_colFlg);
+		}
+
 		
 		//add the body to the dynamics world
 		_phyWorld->addRigidBody(_rigidBody);
@@ -96,9 +111,11 @@ void PhysicsBody::onAttachObject()
 void PhysicsBody::onDetachObject()
 {
 	OgreMostionState* ms = (OgreMostionState*)_rigidBody->getMotionState();
-
-	// deactivate this body
+	 
+ 	// deactivate this body
 	_rigidBody->setActivationState(WANTS_DEACTIVATION);
+
+
 
 	// and stop to update ogre node see OgreMotionState
 	ms->setNode(NULL);

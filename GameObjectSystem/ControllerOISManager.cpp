@@ -64,8 +64,6 @@ bool OISManager::keyPressed( const OIS::KeyEvent &arg )
 		if(lua_pcall(_L, 1, 0, 0) != 0)
 		{
 			
-			//printf("error from keypressed info: %s", lua_tostring(_L, -1));
-			
 			TRACE(lua_tostring(_L, -1));
 			assert(0);
 		}
@@ -75,16 +73,16 @@ bool OISManager::keyPressed( const OIS::KeyEvent &arg )
 		lua_pop(_L, 1);
 		assert(0);
 	}
-	KeyboardList::iterator it = _keyboardList.begin();
-	
-	bool ret = true;
-	for(;it != _keyboardList.end(); it++)
-	{
-		if(ret)
-			ret = (*it)->keyPressed(arg);
-		else
-			break;
-	}
+// 	KeyboardList::iterator it = _keyboardList.begin();
+// 	
+// 	bool ret = true;
+// 	for(;it != _keyboardList.end(); it++)
+// 	{
+// 		if(ret)
+// 			ret = (*it)->keyPressed(arg);
+// 		else
+// 			break;
+// 	}
 
 	return true;
 }
@@ -114,16 +112,16 @@ bool OISManager::keyReleased( const OIS::KeyEvent &arg )
 	}
 
 
-	KeyboardList::iterator it = _keyboardList.begin();
-
-	bool ret = true;
-	for(;it != _keyboardList.end(); it++)
-	{
-		if(ret)
-			ret = (*it)->keyReleased(arg);
-		else
-			break;
-	}
+// 	KeyboardList::iterator it = _keyboardList.begin();
+// 
+// 	bool ret = true;
+// 	for(;it != _keyboardList.end(); it++)
+// 	{
+// 		if(ret)
+// 			ret = (*it)->keyReleased(arg);
+// 		else
+// 			break;
+// 	}
 
 	return true;
 }
@@ -152,16 +150,16 @@ bool OISManager::mouseMoved( const OIS::MouseEvent &arg )
 		lua_pop(_L, 1);
 		assert(0);
 	}
-	MouseList::iterator it = _mouseList.begin();
-
-	bool ret = true;
-	for(;it != _mouseList.end(); it++)
-	{
-		if(ret)
-			ret = (*it)->mouseMoved(arg);
-		else
-			break;
-	}
+// 	MouseList::iterator it = _mouseList.begin();
+// 
+// 	bool ret = true;
+// 	for(;it != _mouseList.end(); it++)
+// 	{
+// 		if(ret)
+// 			ret = (*it)->mouseMoved(arg);
+// 		else
+// 			break;
+// 	}
 
 	return true;
 }
@@ -191,16 +189,16 @@ bool OISManager::mousePressed( const OIS::MouseEvent &arg, OIS::MouseButtonID id
 		assert(0);
 	}
 
-	MouseList::iterator it = _mouseList.begin();
-
-	bool ret = true;
-	for(;it != _mouseList.end(); it++)
-	{
-		if(ret)
-			ret = (*it)->mousePressed(arg, id);
-		else
-			break;
-	}
+// 	MouseList::iterator it = _mouseList.begin();
+// 
+// 	bool ret = true;
+// 	for(;it != _mouseList.end(); it++)
+// 	{
+// 		if(ret)
+// 			ret = (*it)->mousePressed(arg, id);
+// 		else
+// 			break;
+// 	}
 
 	return true;
 }
@@ -231,16 +229,16 @@ bool OISManager::mouseReleased( const OIS::MouseEvent &arg, OIS::MouseButtonID i
 
 
 
-	MouseList::iterator it = _mouseList.begin();
-
-bool ret = true;
-for(;it != _mouseList.end(); it++)
-{
-	if(ret)
-		ret = (*it)->mouseReleased(arg, id);
-	else
-		break;
-}
+// 	MouseList::iterator it = _mouseList.begin();
+// 
+// 	bool ret = true;
+// 	for(;it != _mouseList.end(); it++)
+// 	{
+// 		if(ret)
+// 			ret = (*it)->mouseReleased(arg, id);
+// 		else
+// 			break;
+// 	}
 
 return true;
 }

@@ -1,6 +1,7 @@
 #include "PhysicsManager.h"
 #include "GCPhysicsBody.h"
 #include "GOSScriptManager.h"
+#include "GameObjectSystem.h"
 using namespace DAISY;
 
 PhysicsManager::PhysicsManager():
@@ -9,7 +10,8 @@ _dispatcher(NULL),
 _solver(NULL),
 _collisionConfiguration(NULL),
 _dynamicsWorld(NULL),
-_L(NULL)
+_L(NULL),
+_floorBody(NULL)
 {}
 
 PhysicsManager::~PhysicsManager(){}
@@ -24,12 +26,12 @@ bool PhysicsManager::init()
 	_collisionConfiguration = new btDefaultCollisionConfiguration();
 	//m_collisionConfiguration->setConvexConvexMultipointIterations();
 
-	///use the default collision dispatcher. For parallel processing you can use a diffent dispatcher (see Extras/BulletMultiThreaded)
+	///use the default collision dispatcher. 
 	_dispatcher = new	btCollisionDispatcher(_collisionConfiguration);
 
 	_broadphase = new btDbvtBroadphase();
 
-	///the default constraint solver. For parallel processing you can use a different solver (see Extras/BulletMultiThreaded)
+	///the default constraint solver.
 	btSequentialImpulseConstraintSolver* sol = new btSequentialImpulseConstraintSolver;
 
 	_solver = sol;
@@ -59,44 +61,81 @@ bool PhysicsManager::update(float interval)
 			btCollisionObject* obA = static_cast<btCollisionObject*>(contactManifold->getBody0());
 			btCollisionObject* obB = static_cast<btCollisionObject*>(contactManifold->getBody1());
 			
-			void* gc = obA->getUserPointer();
-			
-			if(gc!= NULL)
+			void* gcA = obA->getUserPointer();
+			void* gcB = obB->getUserPointer();
+
+			if(gcA!= NULL)
 			{
-				PhysicsBody* body = static_cast<PhysicsBody*>(gc);
+				PhysicsBody* body = static_cast<PhysicsBody*>(gcA);
 				
 				// optimize for runtime update 
-				if(! body->needCallBack())
-					continue;
-
-				int numContacts = contactManifold->getNumContacts();
-
-				//	hack: we know that one body collide with others,the count of contaced point could be more than 1
-				//	but in this system, we just need invoke the registered callbcak function once! so we modify it manually
-				if(numContacts > 1) numContacts = 1;
-
-				for (int j=0;j<numContacts;j++)
+				if(body->needCallBack())
 				{
-					btManifoldPoint& pt = contactManifold->getContactPoint(j);
-					if (pt.getDistance()<0.f)
-					{	
-						const btVector3& ptA = pt.getPositionWorldOnA();
-						const btVector3& ptB = pt.getPositionWorldOnB();
-						const btVector3& normalOnB = pt.m_normalWorldOnB;
-						int lifeTime = pt.getLifeTime();
-						void* gcOther = obB->getUserPointer();
+					int numContacts = contactManifold->getNumContacts();
 
-						// we need convert btVector3 to Ogre::Vecntor3 because we don't need to expose bullet type to lua and we have exposed Ogre type to it
-						Ogre::Vector3 posA(ptA.getX(), ptA.getY(), ptA.getZ());
-						Ogre::Vector3 posB(ptB.getX(), ptB.getY(), ptB.getZ());
-						Ogre::Vector3 normal(normalOnB.getX(), normalOnB.getY(), normalOnB.getZ());
-						
-						if(lifeTime == 1)
-							daisy_object_call_lua(_L, gc, "startContacted", 8, gcOther, "PhysicsBody",
-							posA, "Ogre::Vector3", posB, "Ogre::Vector3", normal, "Ogre::Vector3");
-						else if(lifeTime > 1 )
-							daisy_object_call_lua(_L, gc, "contacting", 8, gcOther, "PhysicsBody",
-							posA, "Ogre::Vector3", posB, "Ogre::Vector3", normal, "Ogre::Vector3");
+					//	hack: we know that one body collide with others,the count of contaced point could be more than 1
+					//	but in this system, we just need invoke the registered callbcak function once! so we modify it manually
+					if(numContacts > 1) numContacts = 1;
+
+					for (int j=0;j<numContacts;j++)
+					{
+						btManifoldPoint& pt = contactManifold->getContactPoint(j);
+						if (pt.getDistance()<0.f)
+						{	
+							const btVector3& ptA = pt.getPositionWorldOnA();
+							const btVector3& ptB = pt.getPositionWorldOnB();
+							const btVector3& normalOnB = pt.m_normalWorldOnB;
+							int lifeTime = pt.getLifeTime();
+							void* gcOther = obB->getUserPointer();
+
+							// we need convert btVector3 to Ogre::Vecntor3 because we don't need to expose bullet type to lua and we have exposed Ogre type to it
+							Ogre::Vector3 posA(ptA.getX(), ptA.getY(), ptA.getZ());
+							Ogre::Vector3 posB(ptB.getX(), ptB.getY(), ptB.getZ());
+							Ogre::Vector3 normal(normalOnB.getX(), normalOnB.getY(), normalOnB.getZ());
+							
+							// convert the type of parameters
+							if(lifeTime == 1)
+								daisy_object_call_lua(_L, gcA, "startContacted", 10, gcA, "PhysicsBody", gcOther, "PhysicsBody", (void*)&posA, "Ogre::Vector3", (void*)&posB, "Ogre::Vector3", (void*)&normal, "Ogre::Vector3");
+							else if(lifeTime > 1 )
+								daisy_object_call_lua(_L, gcA, "contacting", 10, gcA, "PhysicsBody", gcOther, "PhysicsBody", (void*)&posA, "Ogre::Vector3", (void*)&posB, "Ogre::Vector3", (void*)&normal, "Ogre::Vector3");
+						}
+					}
+				}
+			}
+			if(gcB!= NULL)
+			{
+				PhysicsBody* body = static_cast<PhysicsBody*>(gcB);
+
+				// optimize for runtime update 
+				if(body->needCallBack())
+				{
+					int numContacts = contactManifold->getNumContacts();
+
+					//	hack: we know that one body collide with others,the count of contaced point could be more than 1
+					//	but in this system, we just need invoke the registered callbcak function once! so we modify it manually
+					if(numContacts > 1) numContacts = 1;
+
+					for (int j=0;j<numContacts;j++)
+					{
+						btManifoldPoint& pt = contactManifold->getContactPoint(j);
+						if (pt.getDistance()<0.f)
+						{	
+							const btVector3& ptA = pt.getPositionWorldOnA();
+							const btVector3& ptB = pt.getPositionWorldOnB();
+							const btVector3& normalOnA = pt.m_positionWorldOnA;
+							int lifeTime = pt.getLifeTime();
+							void* gcOther = obA->getUserPointer();
+
+							// we need convert btVector3 to Ogre::Vecntor3 because we don't need to expose bullet type to lua and we have exposed Ogre type to it
+							Ogre::Vector3 posA(ptA.getX(), ptA.getY(), ptA.getZ());
+							Ogre::Vector3 posB(ptB.getX(), ptB.getY(), ptB.getZ());
+							Ogre::Vector3 normal(normalOnA.getX(), normalOnA.getY(), normalOnA.getZ());
+
+							if(lifeTime == 1)
+								daisy_object_call_lua(_L, gcB, "startContacted", 10, gcB, "PhysicsBody", gcOther, "PhysicsBody", (void*)(&posB), "Ogre::Vector3", (void*)(&posA), "Ogre::Vector3", (void*)(&normal), "Ogre::Vector3");
+							else if(lifeTime > 1 )
+								daisy_object_call_lua(_L, gcB, "contacting", 10, gcB, "PhysicsBody", gcOther, "PhysicsBody", (void*)(&posB), "Ogre::Vector3", (void*)(&posA), "Ogre::Vector3", (void*)(&normal), "Ogre::Vector3");
+						}
 					}
 				}
 			}
@@ -107,6 +146,11 @@ bool PhysicsManager::update(float interval)
 btDynamicsWorld* PhysicsManager::getWorld()
 {
 	return _dynamicsWorld;
+}
+
+void PhysicsManager::pushShap(btCollisionShape* shap)
+{
+	_collisionShapes.push_back(shap);
 }
 void PhysicsManager::shutdown()
 {
@@ -142,3 +186,5 @@ void PhysicsManager::shutdown()
 	delete _collisionConfiguration;
 }
 template<> PhysicsManager* Singleton<PhysicsManager>::_singleton = NULL;
+
+

@@ -1,1 +1,1 @@
-require "type"gameComponentManager:registerUserComponent(PLAYER, "player")
+require "type"gameComponentManager:registerUserComponent(PLAYER, "player")gameComponentManager:registerUserComponent(CAM_MAIN, "CAM_MAIN")gameComponentManager:registerUserComponent(SHOOT_GUN, "SHOOT_GUN")gameComponentManager:registerUserComponent(BULLET, "BULLET")

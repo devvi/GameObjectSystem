@@ -47,7 +47,8 @@ void GameComponent::onDetachObject(){}
 
 GameObject::GameObject(const std::string name):
 _name(name),
-_L(ScriptManager::getInstance().getLuaVM())
+_L(ScriptManager::getInstance().getLuaVM()),
+_isRealeased(false)
 {}
 GameObject::~GameObject()
 {
@@ -70,6 +71,7 @@ void GameObject::addGC(GameComponent* gameComponent)
 	{
 		if((*it)->getType() == gameComponent->getType())
 		{
+			// can add user gc more than 1
 			if( (*it)->getType() == USER )
 				break;
 			else
@@ -131,16 +133,31 @@ bool GameObject::hasUserGC(TYPE_ID user_type)
 	}
 	return false;
 }
-void GameObject::removeGC(TYPE_ID gc_type)
+void GameObject::removeGC(TYPE_ID gc_type, TYPE_ID user_type)
 {
 	GameComponentList::const_iterator it = _gameComponentList.begin();
 	for(;it!= _gameComponentList.end();++it)
 	{
 		if((*it)->getType() == gc_type)
 		{
-			(*it)->onDetachObject();
-			_gameComponentList.remove(*it);
-			return;
+			if(gc_type == USER && user_type != INVALID)
+			{
+				if( (*it)->getUserType() == user_type)
+				{
+					(*it)->onDetachObject();
+					GameComponentManager::getInstance().releaseGameComponent(*it);
+					_gameComponentList.erase(it);
+					return;
+				}
+
+			}else
+			{
+				(*it)->onDetachObject();
+				// when remove a gc from go, that means we need a real remove, delete this component
+				GameComponentManager::getInstance().releaseGameComponent(*it);
+				_gameComponentList.erase(it);
+				return;
+			}
 		}
 	}
 }
@@ -157,7 +174,9 @@ void GameObject::traverseUserFunction(const char* functionName)
 	{
 		GameComponent* gc = (*it);
 		if(gc->getType() == USER)
+		{
 			daisy_object_call_lua(_L, (void*)gc, functionName, 2, (void*)gc, "GameComponent");
+		}
 	}
 
 }
@@ -210,11 +229,7 @@ void GameObjectManager::releaseGameObject(const std::string& name)
 	{
 		if(it->first == name)
 		{
-			lua_State* L = ScriptManager::getInstance().getLuaVM();
-			object_release(L, (void *)it->second);
-
-			delete (it->second);
-			_gameObjectMap.erase(it);
+			it->second->release();
 			break;
 		}
 	}
@@ -222,24 +237,35 @@ void GameObjectManager::releaseGameObject(const std::string& name)
 
 void GameObjectManager::releaseGameObject(GameObject* gameObject)
 {
-	GameObjectMap::iterator it = _gameObjectMap.begin();
-	for(;it!= _gameObjectMap.end();++it)
-	{
-		if(it->second == gameObject)
-		{
-			lua_State* L = ScriptManager::getInstance().getLuaVM();
-			object_release(L, (void *)it->second);
-
-			it->second->removeAllGC();
-
-			delete (it->second);
-			_gameObjectMap.erase(it);
-		}
-	}
+	gameObject->release();
 }
 
 bool GameObjectManager::update()
 {
+	lua_State* L = ScriptManager::getInstance().getLuaVM();
+	
+
+	GameObjectMap::iterator it_free = _gameObjectMap.begin();
+	for(;it_free!= _gameObjectMap.end();)
+	{
+		GameObject* go = it_free->second;
+
+		if(go->isReleased())
+		{
+			object_release(L, (void *)go);
+			
+			go->removeAllGC();
+
+			delete go;
+
+			it_free = _gameObjectMap.erase(it_free);
+		}else
+		{
+			it_free++;
+		}
+	}
+
+	
 	GameObjectMap::iterator it = _gameObjectMap.begin();
 	for(;it!= _gameObjectMap.end();it++)
 	{
@@ -360,5 +386,34 @@ void GameComponentFactory::releaseGameComponent(GameComponent* gc){}
 template<> GameObjectManager* Singleton<GameObjectManager>::_singleton = NULL;
 template<> GameComponentManager* Singleton<GameComponentManager>::_singleton = NULL;
 
+
+
+
+bool DAISY::GameObject::isReleased()
+{
+	return _isRealeased;
+}
+
+void DAISY::GameObject::release()
+{
+	_isRealeased = true;
+}
+
+void DAISY::GameObject::detachGC( GameComponent* gameComponent )
+{
+	GameComponentList::const_iterator it = _gameComponentList.begin();
+	for(;it!= _gameComponentList.end();++it)
+	{
+		if((*it) == gameComponent)
+		{
+			gameComponent->onDetachObject();
+			// when remove a gc from go, that means we need a real remove, delete this component
+			//GameComponentManager::getInstance().releaseGameComponent(*it);
+			_gameComponentList.erase(it);
+			return;
+		}
+	}
+
+}
 
 

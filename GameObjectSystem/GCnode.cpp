@@ -37,12 +37,17 @@ void GCNode::attachNode(GCNode* child)
 {
 	assert(child);
 	
-	// check if this child node has a parent,if it is,then detach from its parent
+	// check if this child node has a parent,if it does,then detach from its parent
+	
+	Ogre::SceneNode* childOgreNode = child->getOgreNode();
+	
+	if(childOgreNode->getParent())
+	{
+		childOgreNode->getParent()->removeChild(childOgreNode);
+	}
 
-	if(_sceneManager->hasSceneNode(child->getOgreNode()->getParentSceneNode()->getName()))
-		child->getOgreNode()->getParentSceneNode()->removeChild(child->getOgreNode());
-
-	_node->addChild(child->getOgreNode());
+	
+	_node->addChild(childOgreNode);
 
 }
 void GCNode::attachOgreObject( Ogre::MovableObject* object )
@@ -100,7 +105,18 @@ void GCNode::setPosition(Ogre::Vector3 &pos)
 {
 	_node->setPosition(pos);
 }
-
+void GCNode::setWorldPosition(Ogre::Vector3 &pos)
+{
+	_node->_setDerivedPosition(pos);
+}
+Ogre::Vector3 GCNode::getPosition()
+{
+	return _node->getPosition();
+}
+Ogre::Vector3 GCNode::getWorldPosition()
+{
+	return _node->_getDerivedPosition();
+}
 void GCNode::setOrientation(Ogre::Quaternion& orient)
 {
 	_node->setOrientation(orient);
@@ -344,3 +360,8 @@ void NodeComponentFactory::releaseGameComponent(GameComponent* gc)
 }
 
 
+
+void DAISY::GCNode::scale( float x, float y, float z)
+{
+	_node->setScale(x, y, z);
+}

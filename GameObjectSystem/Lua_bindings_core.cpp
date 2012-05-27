@@ -1,6 +1,6 @@
 /*
 ** Lua binding: DAISYCORE
-** Generated automatically by tolua++-1.0.92 on 05/17/12 19:26:43.
+** Generated automatically by tolua++-1.0.92 on 05/25/12 21:45:13.
 */
 
 #ifndef __cplusplus
@@ -63,6 +63,13 @@ static int tolua_collect_Axis (lua_State* tolua_S)
 static int tolua_collect_KeyEvent (lua_State* tolua_S)
 {
  KeyEvent* self = (KeyEvent*) tolua_tousertype(tolua_S,1,0);
+	Mtolua_delete(self);
+	return 0;
+}
+
+static int tolua_collect_Ogre__Vector3 (lua_State* tolua_S)
+{
+ Ogre::Vector3* self = (Ogre::Vector3*) tolua_tousertype(tolua_S,1,0);
 	Mtolua_delete(self);
 	return 0;
 }
@@ -2415,6 +2422,123 @@ static int tolua_DAISYCORE_GCNode_setPosition00(lua_State* tolua_S)
 }
 #endif //#ifndef TOLUA_DISABLE
 
+/* method: setWorldPosition of class  GCNode */
+#ifndef TOLUA_DISABLE_tolua_DAISYCORE_GCNode_setWorldPosition00
+static int tolua_DAISYCORE_GCNode_setWorldPosition00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"GCNode",0,&tolua_err) ||
+     (tolua_isvaluenil(tolua_S,2,&tolua_err) || !tolua_isusertype(tolua_S,2,"Ogre::Vector3",0,&tolua_err)) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  GCNode* self = (GCNode*)  tolua_tousertype(tolua_S,1,0);
+  Ogre::Vector3* pos = ((Ogre::Vector3*)  tolua_tousertype(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'setWorldPosition'", NULL);
+#endif
+  {
+   self->setWorldPosition(*pos);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'setWorldPosition'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: getPosition of class  GCNode */
+#ifndef TOLUA_DISABLE_tolua_DAISYCORE_GCNode_getPosition00
+static int tolua_DAISYCORE_GCNode_getPosition00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"GCNode",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  GCNode* self = (GCNode*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'getPosition'", NULL);
+#endif
+  {
+   Ogre::Vector3 tolua_ret = (Ogre::Vector3)  self->getPosition();
+   {
+#ifdef __cplusplus
+    void* tolua_obj = Mtolua_new((Ogre::Vector3)(tolua_ret));
+     tolua_pushusertype(tolua_S,tolua_obj,"Ogre::Vector3");
+    tolua_register_gc(tolua_S,lua_gettop(tolua_S));
+#else
+    void* tolua_obj = tolua_copy(tolua_S,(void*)&tolua_ret,sizeof(Ogre::Vector3));
+     tolua_pushusertype(tolua_S,tolua_obj,"Ogre::Vector3");
+    tolua_register_gc(tolua_S,lua_gettop(tolua_S));
+#endif
+   }
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'getPosition'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: getWorldPosition of class  GCNode */
+#ifndef TOLUA_DISABLE_tolua_DAISYCORE_GCNode_getWorldPosition00
+static int tolua_DAISYCORE_GCNode_getWorldPosition00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"GCNode",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  GCNode* self = (GCNode*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'getWorldPosition'", NULL);
+#endif
+  {
+   Ogre::Vector3 tolua_ret = (Ogre::Vector3)  self->getWorldPosition();
+   {
+#ifdef __cplusplus
+    void* tolua_obj = Mtolua_new((Ogre::Vector3)(tolua_ret));
+     tolua_pushusertype(tolua_S,tolua_obj,"Ogre::Vector3");
+    tolua_register_gc(tolua_S,lua_gettop(tolua_S));
+#else
+    void* tolua_obj = tolua_copy(tolua_S,(void*)&tolua_ret,sizeof(Ogre::Vector3));
+     tolua_pushusertype(tolua_S,tolua_obj,"Ogre::Vector3");
+    tolua_register_gc(tolua_S,lua_gettop(tolua_S));
+#endif
+   }
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'getWorldPosition'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
 /* method: setOrientation of class  GCNode */
 #ifndef TOLUA_DISABLE_tolua_DAISYCORE_GCNode_setOrientation00
 static int tolua_DAISYCORE_GCNode_setOrientation00(lua_State* tolua_S)
@@ -2738,6 +2862,43 @@ static int tolua_DAISYCORE_GCNode_detachOgreObject00(lua_State* tolua_S)
 #ifndef TOLUA_RELEASE
  tolua_lerror:
  tolua_error(tolua_S,"#ferror in function 'detachOgreObject'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: scale of class  GCNode */
+#ifndef TOLUA_DISABLE_tolua_DAISYCORE_GCNode_scale00
+static int tolua_DAISYCORE_GCNode_scale00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"GCNode",0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,3,0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,4,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,5,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  GCNode* self = (GCNode*)  tolua_tousertype(tolua_S,1,0);
+  float x = ((float)  tolua_tonumber(tolua_S,2,0));
+  float y = ((float)  tolua_tonumber(tolua_S,3,0));
+  float z = ((float)  tolua_tonumber(tolua_S,4,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'scale'", NULL);
+#endif
+  {
+   self->scale(x,y,z);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'scale'.",&tolua_err);
  return 0;
 #endif
 }
@@ -3584,7 +3745,8 @@ static int tolua_DAISYCORE_PhysicsBody_initBody00(lua_State* tolua_S)
      !tolua_isusertype(tolua_S,1,"PhysicsBody",0,&tolua_err) ||
      !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
      !tolua_isnumber(tolua_S,3,0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,4,&tolua_err)
+     !tolua_isnumber(tolua_S,4,1,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,5,&tolua_err)
  )
   goto tolua_lerror;
  else
@@ -3593,11 +3755,12 @@ static int tolua_DAISYCORE_PhysicsBody_initBody00(lua_State* tolua_S)
   PhysicsBody* self = (PhysicsBody*)  tolua_tousertype(tolua_S,1,0);
   float mass = ((float)  tolua_tonumber(tolua_S,2,0));
   unsigned int id = ((unsigned int)  tolua_tonumber(tolua_S,3,0));
+  CollisionFlags flag = ((CollisionFlags) (int)  tolua_tonumber(tolua_S,4,CF_DEFAULT));
 #ifndef TOLUA_RELEASE
   if (!self) tolua_error(tolua_S,"invalid 'self' in function 'initBody'", NULL);
 #endif
   {
-   self->initBody(mass,id);
+   self->initBody(mass,id,flag);
   }
  }
  return 0;
@@ -4203,6 +4366,9 @@ TOLUA_API int tolua_DAISYCORE_open (lua_State* tolua_S)
    tolua_function(tolua_S,"getOgreNode",tolua_DAISYCORE_GCNode_getOgreNode00);
    tolua_function(tolua_S,"translate",tolua_DAISYCORE_GCNode_translate00);
    tolua_function(tolua_S,"setPosition",tolua_DAISYCORE_GCNode_setPosition00);
+   tolua_function(tolua_S,"setWorldPosition",tolua_DAISYCORE_GCNode_setWorldPosition00);
+   tolua_function(tolua_S,"getPosition",tolua_DAISYCORE_GCNode_getPosition00);
+   tolua_function(tolua_S,"getWorldPosition",tolua_DAISYCORE_GCNode_getWorldPosition00);
    tolua_function(tolua_S,"setOrientation",tolua_DAISYCORE_GCNode_setOrientation00);
    tolua_function(tolua_S,"setVisible",tolua_DAISYCORE_GCNode_setVisible00);
    tolua_function(tolua_S,"roll",tolua_DAISYCORE_GCNode_roll00);
@@ -4213,6 +4379,7 @@ TOLUA_API int tolua_DAISYCORE_open (lua_State* tolua_S)
    tolua_function(tolua_S,"detachFromParentNode",tolua_DAISYCORE_GCNode_detachFromParentNode00);
    tolua_function(tolua_S,"attachOgreObject",tolua_DAISYCORE_GCNode_attachOgreObject00);
    tolua_function(tolua_S,"detachOgreObject",tolua_DAISYCORE_GCNode_detachOgreObject00);
+   tolua_function(tolua_S,"scale",tolua_DAISYCORE_GCNode_scale00);
   tolua_endmodule(tolua_S);
   tolua_cclass(tolua_S,"GCCamera","GCCamera","GameComponent",NULL);
   tolua_beginmodule(tolua_S,"GCCamera");
@@ -4282,6 +4449,14 @@ TOLUA_API int tolua_DAISYCORE_open (lua_State* tolua_S)
    tolua_function(tolua_S,".call",tolua_DAISYCORE_UserComponentFactory_new00_local);
    tolua_function(tolua_S,"delete",tolua_DAISYCORE_UserComponentFactory_delete00);
   tolua_endmodule(tolua_S);
+  tolua_constant(tolua_S,"CF_DEFAULT",CF_DEFAULT);
+  tolua_constant(tolua_S,"CF_STATIC_OBJECT",CF_STATIC_OBJECT);
+  tolua_constant(tolua_S,"CF_KINEMATIC_OBJECT",CF_KINEMATIC_OBJECT);
+  tolua_constant(tolua_S,"CF_NO_CONTACT_RESPONSE",CF_NO_CONTACT_RESPONSE);
+  tolua_constant(tolua_S,"CF_CUSTOM_MATERIAL_CALLBACK",CF_CUSTOM_MATERIAL_CALLBACK);
+  tolua_constant(tolua_S,"CF_CHARACTER_OBJECT",CF_CHARACTER_OBJECT);
+  tolua_constant(tolua_S,"CF_DISABLE_VISUALIZE_OBJECT",CF_DISABLE_VISUALIZE_OBJECT);
+  tolua_constant(tolua_S,"CF_DISABLE_SPU_COLLISION_PROCESSING",CF_DISABLE_SPU_COLLISION_PROCESSING);
   tolua_cclass(tolua_S,"PhysicsBody","PhysicsBody","GameComponent",NULL);
   tolua_beginmodule(tolua_S,"PhysicsBody");
    tolua_function(tolua_S,"initBody",tolua_DAISYCORE_PhysicsBody_initBody00);
