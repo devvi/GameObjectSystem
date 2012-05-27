@@ -33,7 +33,7 @@ bool Director::init()
 	_gameObjectManager = new GameObjectManager();
 	_physicsManager = new PhysicsManager();
 
-	if(_ogreManager->init() &&_physicsManager->init()&& _scriptManager->init() && _oisManager->init())
+	if(_ogreManager->init() && _scriptManager->init()&&_physicsManager->init() && _oisManager->init())
 		return true;
 	else
 		return false;
@@ -59,6 +59,8 @@ bool Director::run()
 			_oisManager->update();
 
 			_gameObjectManager->update();
+
+			_scriptManager->update();
 
 			_ogreManager->update(FIXED_UPDATE_FRAMERATE);
 			

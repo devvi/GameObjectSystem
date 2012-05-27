@@ -1,6 +1,6 @@
 /*
 ** Lua binding: Ogre
-** Generated automatically by tolua++-1.0.92 on 05/17/12 18:05:06.
+** Generated automatically by tolua++-1.0.92 on 05/22/12 16:56:58.
 */
 
 #ifndef __cplusplus
@@ -13,7 +13,7 @@
 /* Exported function */
 TOLUA_API int  tolua_Ogre_open (lua_State* tolua_S);
 
-#include "OGRE/Ogre.h"
+#include "Ogre/Ogre.h"
 #include <string>
 #include "ViewOgreManager.h"
 using namespace DAISY;
@@ -14350,6 +14350,41 @@ static int tolua_Ogre_OgreManager_createCamera00(lua_State* tolua_S)
 }
 #endif //#ifndef TOLUA_DISABLE
 
+/* method: getCamera of class  OgreManager */
+#ifndef TOLUA_DISABLE_tolua_Ogre_OgreManager_getCamera00
+static int tolua_Ogre_OgreManager_getCamera00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"OgreManager",0,&tolua_err) ||
+     !tolua_iscppstring(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  OgreManager* self = (OgreManager*)  tolua_tousertype(tolua_S,1,0);
+  std::string name = ((std::string)  tolua_tocppstring(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'getCamera'", NULL);
+#endif
+  {
+   Ogre::Camera* tolua_ret = (Ogre::Camera*)  self->getCamera(name);
+    tolua_pushusertype(tolua_S,(void*)tolua_ret,"Ogre::Camera");
+   tolua_pushcppstring(tolua_S,(const char*)name);
+  }
+ }
+ return 2;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'getCamera'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
 /* method: destroyCamera of class  OgreManager */
 #ifndef TOLUA_DISABLE_tolua_Ogre_OgreManager_destroyCamera00
 static int tolua_Ogre_OgreManager_destroyCamera00(lua_State* tolua_S)
@@ -14573,6 +14608,124 @@ static int tolua_Ogre_OgreManager_destroyLight00(lua_State* tolua_S)
 #ifndef TOLUA_RELEASE
  tolua_lerror:
  tolua_error(tolua_S,"#ferror in function 'destroyLight'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: setSkyDome of class  OgreManager */
+#ifndef TOLUA_DISABLE_tolua_Ogre_OgreManager_setSkyDome00
+static int tolua_Ogre_OgreManager_setSkyDome00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"OgreManager",0,&tolua_err) ||
+     !tolua_isboolean(tolua_S,2,0,&tolua_err) ||
+     !tolua_iscppstring(tolua_S,3,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,4,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  OgreManager* self = (OgreManager*)  tolua_tousertype(tolua_S,1,0);
+  bool enable = ((bool)  tolua_toboolean(tolua_S,2,0));
+  std::string materialName = ((std::string)  tolua_tocppstring(tolua_S,3,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'setSkyDome'", NULL);
+#endif
+  {
+   self->setSkyDome(enable,materialName);
+   tolua_pushcppstring(tolua_S,(const char*)materialName);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'setSkyDome'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: createPlaneMesh of class  OgreManager */
+#ifndef TOLUA_DISABLE_tolua_Ogre_OgreManager_createPlaneMesh00
+static int tolua_Ogre_OgreManager_createPlaneMesh00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"OgreManager",0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,3,0,&tolua_err) ||
+     !tolua_iscppstring(tolua_S,4,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,5,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  OgreManager* self = (OgreManager*)  tolua_tousertype(tolua_S,1,0);
+  int width = ((int)  tolua_tonumber(tolua_S,2,0));
+  int height = ((int)  tolua_tonumber(tolua_S,3,0));
+  std::string meshName = ((std::string)  tolua_tocppstring(tolua_S,4,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'createPlaneMesh'", NULL);
+#endif
+  {
+   self->createPlaneMesh(width,height,meshName);
+   tolua_pushcppstring(tolua_S,(const char*)meshName);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'createPlaneMesh'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: setFloor of class  OgreManager */
+#ifndef TOLUA_DISABLE_tolua_Ogre_OgreManager_setFloor00
+static int tolua_Ogre_OgreManager_setFloor00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"OgreManager",0,&tolua_err) ||
+     !tolua_isboolean(tolua_S,2,0,&tolua_err) ||
+     (tolua_isvaluenil(tolua_S,3,&tolua_err) || !tolua_isusertype(tolua_S,3,"Ogre::Vector3",0,&tolua_err)) ||
+     !tolua_isnumber(tolua_S,4,0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,5,0,&tolua_err) ||
+     !tolua_isboolean(tolua_S,6,0,&tolua_err) ||
+     !tolua_iscppstring(tolua_S,7,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,8,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  OgreManager* self = (OgreManager*)  tolua_tousertype(tolua_S,1,0);
+  bool enable = ((bool)  tolua_toboolean(tolua_S,2,0));
+  Ogre::Vector3* initPos = ((Ogre::Vector3*)  tolua_tousertype(tolua_S,3,0));
+  int width = ((int)  tolua_tonumber(tolua_S,4,0));
+  int height = ((int)  tolua_tonumber(tolua_S,5,0));
+  bool needCollision = ((bool)  tolua_toboolean(tolua_S,6,0));
+  std::string materialName = ((std::string)  tolua_tocppstring(tolua_S,7,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'setFloor'", NULL);
+#endif
+  {
+   self->setFloor(enable,*initPos,width,height,needCollision,materialName);
+   tolua_pushcppstring(tolua_S,(const char*)materialName);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'setFloor'.",&tolua_err);
  return 0;
 #endif
 }
@@ -15089,7 +15242,7 @@ TOLUA_API int tolua_Ogre_open (lua_State* tolua_S)
   tolua_endmodule(tolua_S);
   tolua_module(tolua_S,"Ogre",0);
   tolua_beginmodule(tolua_S,"Ogre");
-   tolua_cclass(tolua_S,"Camera","Ogre::Camera","",NULL);
+   tolua_cclass(tolua_S,"Camera","Ogre::Camera","Ogre::MovableObject",NULL);
    tolua_beginmodule(tolua_S,"Camera");
     tolua_function(tolua_S,"setPosition",tolua_Ogre_Ogre_Camera_setPosition00);
     tolua_function(tolua_S,"setPosition",tolua_Ogre_Ogre_Camera_setPosition01);
@@ -15186,6 +15339,7 @@ TOLUA_API int tolua_Ogre_open (lua_State* tolua_S)
    tolua_function(tolua_S,"createSecondSceneManager",tolua_Ogre_OgreManager_createSecondSceneManager00);
    tolua_function(tolua_S,"swapSceneManager",tolua_Ogre_OgreManager_swapSceneManager00);
    tolua_function(tolua_S,"createCamera",tolua_Ogre_OgreManager_createCamera00);
+   tolua_function(tolua_S,"getCamera",tolua_Ogre_OgreManager_getCamera00);
    tolua_function(tolua_S,"destroyCamera",tolua_Ogre_OgreManager_destroyCamera00);
    tolua_function(tolua_S,"destroyCamera",tolua_Ogre_OgreManager_destroyCamera01);
    tolua_function(tolua_S,"setAmbientColor",tolua_Ogre_OgreManager_setAmbientColor00);
@@ -15193,6 +15347,9 @@ TOLUA_API int tolua_Ogre_open (lua_State* tolua_S)
    tolua_function(tolua_S,"setCurrentCamera",tolua_Ogre_OgreManager_setCurrentCamera00);
    tolua_function(tolua_S,"createLight",tolua_Ogre_OgreManager_createLight00);
    tolua_function(tolua_S,"destroyLight",tolua_Ogre_OgreManager_destroyLight00);
+   tolua_function(tolua_S,"setSkyDome",tolua_Ogre_OgreManager_setSkyDome00);
+   tolua_function(tolua_S,"createPlaneMesh",tolua_Ogre_OgreManager_createPlaneMesh00);
+   tolua_function(tolua_S,"setFloor",tolua_Ogre_OgreManager_setFloor00);
   tolua_endmodule(tolua_S);
  tolua_endmodule(tolua_S);
  return 1;

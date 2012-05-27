@@ -1,4 +1,6 @@
 #include "ViewOgreManager.h"
+#include "PhysicsManager.h"
+#include "GameObjectSystem.h"
 using namespace DAISY;
 
 OgreManager::OgreManager():
@@ -57,7 +59,7 @@ void OgreManager::createSecondSceneManager(Ogre::SceneTypeMask type)
 };
 
 void OgreManager::swapSceneManager()
-{
+{	
 	_swapSceneManager(_sceneManager, _secondSceneManager);
 }
 
@@ -184,45 +186,69 @@ bool OgreManager::init()
 
 template<> OgreManager* Singleton<OgreManager>::_singleton = NULL;
 
-Ogre::Camera* DAISY::OgreManager::createCamera(std::string& name)
+Ogre::Camera* OgreManager::createCamera(std::string& name)
 {
-	return _sceneManager->createCamera(name);
+	Ogre::Camera* cam = _sceneManager->createCamera(name);
+	cam->setAspectRatio(Ogre::Real(_viewport->getActualWidth())/Ogre::Real(_viewport->getActualHeight()));
+
+	return cam;
 }
 
-void DAISY::OgreManager::setCurrentCamera( Ogre::Camera* camera )
+void OgreManager::setCurrentCamera( Ogre::Camera* camera )
 {
 	_viewport->setCamera(camera);
 }
 
-void DAISY::OgreManager::setAmbientColor( Ogre::ColourValue& color )
+void OgreManager::setAmbientColor( Ogre::ColourValue& color )
 {
 	_sceneManager->setAmbientLight(color);
 }
 
-void DAISY::OgreManager::setBackGroundColor( Ogre::ColourValue& color )
+void OgreManager::setBackGroundColor( Ogre::ColourValue& color )
 {
 	_viewport->setBackgroundColour(color);
 }
 
-void DAISY::OgreManager::destroyCamera( Ogre::Camera* camera )
+void OgreManager::destroyCamera( Ogre::Camera* camera )
 {
 	_sceneManager->destroyCamera(camera);
 }
 
-void DAISY::OgreManager::destroyCamera( std::string& name )
+void OgreManager::destroyCamera( std::string& name )
 {
 	_sceneManager->destroyCamera(name);
 }
 
-Ogre::Light* DAISY::OgreManager::createLight( Ogre::Light::LightTypes type )
+Ogre::Light* OgreManager::createLight( Ogre::Light::LightTypes type )
 {
 	Ogre::Light* light = _sceneManager->createLight();
 	light->setType(type);
 	return light;
 }
 
-void DAISY::OgreManager::destroyLight( Ogre::Light* light )
+void OgreManager::destroyLight( Ogre::Light* light )
 {
 	_sceneManager->destroyLight(light);
 }
 
+void OgreManager::setSkyDome( bool enable, std::string& materialName )
+{
+	_sceneManager->setSkyDome(enable, materialName);
+}
+
+void OgreManager::setFloor(bool enable, Ogre::Vector3& initPos, int width, int height, bool needCollision, std::string& materialName)
+{
+	// deprecated 
+}
+
+void DAISY::OgreManager::createPlaneMesh( int width, int height, std::string& meshName)
+{
+	// create a floor mesh resource
+	Ogre::MeshManager::getSingleton().createPlane(meshName,  Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+		Ogre::Plane(Ogre::Vector3::UNIT_Y, 0), width, height, 10, 10, true, 1 , 10, 10, Ogre::Vector3::UNIT_Z);
+}
+
+Ogre::Camera* DAISY::OgreManager::getCamera( std::string& name )
+{
+	return _sceneManager->getCamera(name);
+}

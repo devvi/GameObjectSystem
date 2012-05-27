@@ -5,6 +5,7 @@
 
 namespace DAISY
 {
+	typedef std::list<btRigidBody*> BodyList;
 	class PhysicsManager: public Singleton<PhysicsManager>
 	{
 	public:
@@ -15,6 +16,7 @@ namespace DAISY
 		void shutdown();
 		btDynamicsWorld* getWorld();
 		void pushShap(btCollisionShape* shap);
+		
 	private:
 
 		// a set of collision shaps
@@ -34,6 +36,9 @@ namespace DAISY
 		btDynamicsWorld*		_dynamicsWorld;
 
 		lua_State* _L;
+
+		// for internal usage
+		btRigidBody* _floorBody;
 	};
 
 }

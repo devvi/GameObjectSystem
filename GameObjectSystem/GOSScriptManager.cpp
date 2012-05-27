@@ -62,6 +62,7 @@ bool ScriptManager::update()
 #endif
 
 	int lua_used_memory = lua_gc(L, LUA_GCCOUNT, 0);
+	
 	return true;
 }
 
@@ -282,6 +283,7 @@ bool try_push_object_vtable(lua_State *L, void* object)
 
 void object_retain(lua_State *L, void *object, const char* object_typename)
 {
+
 	BEGIN_CHECK_STACK();
 	if ( !L )
 		return;
@@ -333,6 +335,44 @@ void object_release(lua_State *L, void *object)
 	END_CHECK_STACK();
 }
 
+static void stackDump (lua_State *L) {
+	int i;
+	bool is ;
+	char b[20];
+	int top = lua_gettop(L);
+	for (i = 1; i <= top; i++) {  /* repeat for each level */
+		int t = lua_type(L, i);
+		switch (t) {
+			
+		case LUA_TSTRING:  /* strings */
+			TRACE(lua_tostring(L, i));
+			break;
+
+		case LUA_TBOOLEAN:  /* booleans */
+			is = lua_toboolean(L, i);
+			
+			if(is)
+				TRACE("true");
+			else
+				TRACE("false");
+			
+			break;
+		case LUA_TNUMBER:  /* numbers */
+			sprintf(b,"%f",lua_tonumber(L, i));
+			TRACE(b);
+			break;
+
+		default:  /* other values */
+			TRACE(lua_typename(L, t));
+			break;
+
+		}
+		TRACE("  ");  /* put a separator */
+	}
+	TRACE("\n");  /* end the listing */
+}
+
+
 void daisy_object_call_lua(lua_State *L, void* object,
 	const char* function_name, int arg_count, ...)
 {
@@ -359,15 +399,19 @@ void daisy_object_call_lua(lua_State *L, void* object,
 			
 
 			lua_rawget(L, -2);					// stack: vtbl, function, olm, olm[u](object)
+			//stackDump(L);
+			
 			if(lua_isnil(L,-1))
 			{
 				TRACE("TOP OF STACK IS NIL");   // debug use
 			}
+			//void* comp = tolua_tousertype(L, 0, NULL);// debug here
+
 			top = lua_gettop(L);
 			lua_remove(L, top-1);				// stack: vtbl, function, object
+			top = lua_gettop(L);
 
-
-
+			//stackDump(L);
 
 			va_start(args, arg_count);
 			for( i = 0; i < arg_count; i += 2 )
@@ -377,11 +421,13 @@ void daisy_object_call_lua(lua_State *L, void* object,
 				tolua_pushusertype(L, user_type, user_type_name);
 			}
 			va_end(args);
+
+			//stackDump(L);
+
 			top = lua_gettop(L);
 			{
-				
+
 				result = lua_pcall(L, 1 + (arg_count/2), 0, errfunc_index);	// stack: vtbl
-				
 			}
 
 			if ( result )

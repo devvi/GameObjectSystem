@@ -25,6 +25,11 @@ const int RENDER_CAM        = 5;
 const int RENDER_ENTITY     = 6;
 const int USER				= 7;
 
+// internal collision ID
+const int COL_TERRAIN		= 5000; 
+
+
+
 typedef int TYPE_ID;
 typedef std::list<GameComponent*> GameComponentList;
 typedef std::map<const std::string, GameComponent*> GameComponentMap;
@@ -33,5 +38,11 @@ typedef std::map<const std::string, GameObject*> GameObjectMap;
 typedef std::map<TYPE_ID, GameComponentFactory*> GameComponentFactoyMap;
 typedef std::list<TYPE_ID> UserRegList;
 //typedef std::map<TYPE_ID, >
+}
+
+namespace Ogre
+{
+	class Vector3;
+	class Vector4;
 }
 #endif

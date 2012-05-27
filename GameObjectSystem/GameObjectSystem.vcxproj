@@ -60,6 +60,7 @@
       <AdditionalLibraryDirectories>$(OGRE_HOME)\lib\debug;$(BOOST_HOME)\stage\lib;$(LUA_DEV)\lib;$(TO_LUA_HOME)\lib;$(BULLET_HOME)\lib\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>OgreMain_d.lib;OIS_d.lib;winmm.lib;toluaLib.lib;lua5.1.lib;LinearMath_Debug.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <AdditionalOptions>/NODEFAULTLIB:MSVCRT /NODEFAULTLIB:LIBCMTD /LTCG %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
       <Command>copy "$(OutDir)\$(TargetFileName)" "$(OGRE_HOME)\Bin\$(Configuration)"</Command>
@@ -118,6 +119,9 @@
     <ClCompile Include="PhysicsManager.cpp" />
     <ClCompile Include="UserComponent.cpp" />
     <ClCompile Include="ViewOgreManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

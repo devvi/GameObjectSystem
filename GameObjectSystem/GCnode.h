@@ -20,6 +20,7 @@ public:
 	void detachOgreObject(Ogre::MovableObject* object);
 	void attachNode(GCNode* child);
 	void detachNode(GCNode* child);
+	void scale(float x, float y, float z);
 	void detachFromParentNode();
 	void translate( Ogre::Vector3 &pos);
 	void roll(float value);
@@ -28,6 +29,9 @@ public:
 	void setPosition(Ogre::Vector3 &pos);
 	void setOrientation(Ogre::Quaternion& orient);
 	void setVisible(bool isVisible);
+	void setWorldPosition(Ogre::Vector3 &pos);
+	Ogre::Vector3 getPosition();
+	Ogre::Vector3 getWorldPosition();
 private:
 	Ogre::SceneNode* _node;
 	Ogre::SceneManager* _sceneManager;

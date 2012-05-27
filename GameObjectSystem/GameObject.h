@@ -44,18 +44,23 @@ public:
 	GameObject(const std::string name = "default");
 	virtual ~GameObject();
 	void addGC(GameComponent* gameComponent);
+	void detachGC(GameComponent* gameComponent);
 	GameComponent* getGC(TYPE_ID gc_type);
 	GameComponent* getUserGC(TYPE_ID user_type);
-	void removeGC(TYPE_ID gc_type);
+	void removeGC(TYPE_ID gc_type, TYPE_ID user_type = INVALID);
 	bool hasGC(TYPE_ID gc_type);
 	bool hasUserGC(TYPE_ID user_type);
 	void removeAllGC();
 	bool update();
 	void traverseUserFunction(const char* functionName);
+	bool isReleased();
+	void release();
 private:
 	std::string _name;
 	lua_State* _L;
 	GameComponentList _gameComponentList;
+	bool _isRealeased;
+
 };
 
 class GameObjectManager: public Singleton<GameObjectManager>
@@ -71,7 +76,7 @@ public:
 	void shutdown();
 	bool update();
 private:
-	GameObjectMap _gameObjectMap;	
+	GameObjectMap _gameObjectMap;
 };
 
 class GameComponentManager: public Singleton<GameComponentManager>

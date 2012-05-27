@@ -19,6 +19,7 @@ namespace DAISY {
 	// for script
 	public:
 		Ogre::Camera* createCamera(std::string& name);
+		Ogre::Camera* getCamera(std::string& name);
 		void destroyCamera(Ogre::Camera* camera);
 		void destroyCamera(std::string& name);
 		void setAmbientColor(Ogre::ColourValue& color);
@@ -27,6 +28,9 @@ namespace DAISY {
 		Ogre::Light* createLight(Ogre::Light::LightTypes type);
 		void destroyLight(Ogre::Light* light);
 
+		void setSkyDome(bool enable, std::string& materialName);
+		void setFloor(bool enable, Ogre::Vector3& initPos, int width, int height, bool needCollision, std::string& materialName);
+		void createPlaneMesh(int width, int height, std::string& meshName);
 	private:
 		bool configure();
 		void setupResources();
