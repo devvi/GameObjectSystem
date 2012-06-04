@@ -1,3 +1,9 @@
+/*
+-----------------------------------------------------------------------------
+This soure file is part of GameObjectSystem.
+Copyright (c) 2012 Devvi
+-----------------------------------------------------------------------------
+*/
 #include "Director.h"
 #include "GameObjectSystem.h"
 #include <tolua++.h>
@@ -86,6 +92,7 @@ void Director::shutdown()
 	delete _oisManager;
 	delete _physicsManager;
 	delete _ogreManager;
+	delete _scriptManager;
 }
 void Director::setExit(bool exit)
 {

@@ -1,0 +1,6 @@
+namespace Ogre {
+    class MovableObject
+    {
+	};
+}
+

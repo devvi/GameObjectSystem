@@ -1,3 +1,6 @@
+-- Function: Init the component factories which we need and register it to system 
+-- Author  : Devvi
+-- Data    : 2012.05.13
 require "type"
 
 gcNodeFactory = NodeComponentFactory()

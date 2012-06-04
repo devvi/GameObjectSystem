@@ -1,3 +1,10 @@
+/*
+-----------------------------------------------------------------------------
+This soure file is part of GameObjectSystem.
+Copyright (c) 2012 Devvi
+-----------------------------------------------------------------------------
+*/
+
 #ifndef __GAME_OBJECT_SYSTEM_GAME_DECL_H__
 #define __GAME_OBJECT_SYSTEM_GAME_DECL_H__
 #include "GOSInc.h"

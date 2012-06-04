@@ -1,0 +1,25 @@
+$#include "decl.h"
+class ParentClass
+{
+public:
+	ParentClass();
+	virtual ~ParentClass();
+public:
+	virtual void doExecute();
+	virtual int add(int a, int b);
+	virtual int getValue();
+	void get();
+};
+class MyClass :public ParentClass
+{
+public:
+	MyClass();
+	~MyClass();
+	void doExecute();
+	int add(int a, int b);
+	int getValue();
+	ParentClass* getPointer();
+
+	int value;
+	ParentClass* pointer;
+};

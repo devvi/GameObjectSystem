@@ -1,0 +1,103 @@
+namespace Ogre
+{
+
+    class Matrix4
+    {
+   
+    public:
+       
+        inline Matrix4();
+
+        inline Matrix4(
+            Real m00, Real m01, Real m02, Real m03,
+            Real m10, Real m11, Real m12, Real m13,
+            Real m20, Real m21, Real m22, Real m23,
+            Real m30, Real m31, Real m32, Real m33 );
+       
+
+        inline Matrix4(const Matrix3& m3x3);
+
+        inline Matrix4(const Quaternion& rot);
+       
+		inline void swap(Matrix4& other);
+
+        inline Matrix4 concatenate(const Matrix4 &m2) const;
+        
+        inline Matrix4 operator * ( const Matrix4 &m2 ) const;
+
+        inline Vector3 operator * ( const Vector3 &v ) const;
+       
+        inline Vector4 operator * (const Vector4& v) const;
+        
+        inline Matrix4 operator + ( const Matrix4 &m2 ) const;
+      
+        inline Matrix4 operator - ( const Matrix4 &m2 ) const;
+       
+        inline bool operator == ( const Matrix4& m2 ) const;
+
+        inline void operator = ( const Matrix3& mat3 );
+    
+        inline Matrix4 transpose(void) const;
+        
+        inline void setTrans( const Vector3& v );
+
+        inline Vector3 getTrans() const;
+        
+        inline void makeTrans( const Vector3& v );
+       
+        inline void makeTrans( Real tx, Real ty, Real tz );
+       
+
+        inline static Matrix4 getTrans( const Vector3& v );
+        
+        inline static Matrix4 getTrans( Real t_x, Real t_y, Real t_z );
+        
+
+     
+        inline void setScale( const Vector3& v );
+       
+        inline static Matrix4 getScale( const Vector3& v );
+       
+        inline static Matrix4 getScale( Real s_x, Real s_y, Real s_z );
+        
+        inline void extract3x3Matrix(Matrix3& m3x3) const;
+        
+		inline bool hasScale() const;
+		
+		inline bool hasNegativeScale() const;
+		
+        inline Quaternion extractQuaternion() const;
+        
+
+        static const Matrix4 ZERO;
+        static const Matrix4 IDENTITY;
+		
+        static const Matrix4 CLIPSPACE2DTOIMAGESPACE;
+
+        inline Matrix4 operator*(Real scalar) const;
+		
+		Matrix4 adjoint() const;
+		Real determinant() const;
+		Matrix4 inverse() const;
+
+       
+        void makeTransform(const Vector3& position, const Vector3& scale, const Quaternion& orientation);
+
+        void makeInverseTransform(const Vector3& position, const Vector3& scale, const Quaternion& orientation);
+
+        void decomposition(Vector3& position, Vector3& scale, Quaternion& orientation) const;
+
+        inline bool isAffine(void) const;
+        
+        Matrix4 inverseAffine(void) const;
+
+        inline Matrix4 concatenateAffine(const Matrix4 &m2) const;
+
+        inline Vector3 transformAffine(const Vector3& v) const;
+      
+        inline Vector4 transformAffine(const Vector4& v) const;
+       
+    };
+
+}
+

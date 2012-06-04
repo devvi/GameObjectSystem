@@ -1,0 +1,18 @@
+$#include "OIS/OIS.h"
+$#include "GameObject.h"
+$#include "GOSScriptManager.h"
+$#include "GCnode.h"
+$#include "GCUserComponent.h"
+$#include "GCPhysicsBody.h"
+
+$using namespace OIS;
+$using namespace DAISY;
+
+$pfile "OISMouse.pkg" 
+
+
+$pfile "OISKeyboard.pkg" 
+
+
+$pfile "gameobject.pkg"
+

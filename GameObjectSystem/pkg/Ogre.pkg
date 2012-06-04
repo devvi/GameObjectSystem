@@ -1,0 +1,40 @@
+$#include "Ogre/Ogre.h"
+$#include <string>
+$#include "ViewOgreManager.h"
+
+$pfile "OgrePrerequisites.pkg"
+
+$pfile "OgreMath.pkg"
+
+$pfile "OgreMatrix4.pkg"
+
+$pfile "OgreMatrix3.pkg"
+
+$pfile "OgreVector3.pkg"
+
+$pfile "OgreVector2.pkg"
+
+$pfile "OgreVector4.pkg"
+
+$pfile "OgreQuaternion.pkg"
+
+$pfile "OgreColour.pkg"
+
+$pfile "OgreMovable.pkg"
+
+$pfile "OgreSceneNode.pkg"
+
+$pfile "OgreCamera.pkg"
+
+$pfile "OgreLight.pkg"
+
+$pfile "OgreSceneManager.pkg"
+
+$using namespace DAISY;
+
+$pfile "ViewOgreManager.pkg"
+
+
+
+
+

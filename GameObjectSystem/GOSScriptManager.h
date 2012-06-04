@@ -10,6 +10,13 @@ extern "C"{
 
 #define DAISY_GOS_VTBL "daisy_gos_vtbl"
 #define DAISY_OLM "daisy_olm"
+/*
+-----------------------------------------------------------------------------
+This soure file is part of GameObjectSystem.
+Copyright (c) 2012 Devvi
+-----------------------------------------------------------------------------
+*/
+
 #define SCRIPT_DEBUG 1; //full gc for lua vm
 
 

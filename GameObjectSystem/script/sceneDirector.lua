@@ -1,3 +1,6 @@
+-- Function: A controller to change and pop scene, called SceneDirector
+-- Author  : Devvi
+-- Data    : 2012.05.16
 require "type"
 require "util"
 require "commandprocess"
@@ -23,7 +26,7 @@ function SceneDirector:addScene(scene)
 	scene.SceneDirector = self
 	
 	if #self.SceneStack == 0 then
-		scene.onEnterScene()
+		scene:onEnterScene()
 		table.insert(self.SceneStack, scene)
 	else
 		local currScene = self.SceneStack[#self.SceneStack]

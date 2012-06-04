@@ -1,3 +1,9 @@
+/*
+-----------------------------------------------------------------------------
+This soure file is part of GameObjectSystem.
+Copyright (c) 2012 Devvi
+-----------------------------------------------------------------------------
+*/
 #include "GCnode.h"
 #include "ViewOgreManager.h"
 #include "GOSDecl.h"

@@ -1,3 +1,9 @@
+/*
+-----------------------------------------------------------------------------
+This soure file is part of GameObjectSystem.
+Copyright (c) 2012 Devvi
+-----------------------------------------------------------------------------
+*/
 #include "GCUserComponent.h"
 
 using namespace DAISY;

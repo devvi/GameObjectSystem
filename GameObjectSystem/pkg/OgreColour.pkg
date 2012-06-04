@@ -1,0 +1,86 @@
+namespace Ogre {
+
+    typedef uint32 RGBA;
+    typedef uint32 ARGB;
+    typedef uint32 ABGR;
+	typedef uint32 BGRA;
+
+  
+    class ColourValue
+    {
+    public:
+        static const ColourValue ZERO;
+        static const ColourValue Black;
+        static const ColourValue White;
+        static const ColourValue Red;
+        static const ColourValue Green;
+        static const ColourValue Blue;
+
+	    ColourValue( float red = 1.0f,
+				    float green = 1.0f,
+				    float blue = 1.0f,
+				    float alpha = 1.0f );
+       
+
+	    bool operator==(const ColourValue& rhs) const;
+
+        float r,g,b,a;
+
+	    /** Retrieves colour as RGBA.
+	    */
+	    RGBA getAsRGBA(void) const;
+
+	    /** Retrieves colour as ARGB.
+	    */
+	    ARGB getAsARGB(void) const;
+
+		/** Retrieves colour as BGRA.
+		*/
+		BGRA getAsBGRA(void) const;
+
+		/** Retrieves colours as ABGR */
+	    ABGR getAsABGR(void) const;
+
+	    /** Sets colour as RGBA.
+	    */
+        void setAsRGBA(const RGBA val);
+
+	    /** Sets colour as ARGB.
+	    */
+        void setAsARGB(const ARGB val);
+
+		/** Sets colour as BGRA.
+		*/
+		void setAsBGRA(const BGRA val);
+
+	    /** Sets colour as ABGR.
+	    */
+        void setAsABGR(const ABGR val);
+
+        /** Clamps colour value to the range [0, 1].
+        */
+        void saturate(void);
+
+		// arithmetic operations
+        inline ColourValue operator + ( const ColourValue& rkVector ) const;
+        
+
+        inline ColourValue operator - ( const ColourValue& rkVector ) const;
+       
+
+        inline ColourValue operator * (const float fScalar ) const;
+        
+
+        inline ColourValue operator * ( const ColourValue& rhs) const;
+        
+
+        inline ColourValue operator / ( const ColourValue& rhs) const;
+        
+
+        inline ColourValue operator / (const float fScalar ) const;
+       
+
+    };
+	
+
+}

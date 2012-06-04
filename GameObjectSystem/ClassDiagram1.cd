@@ -1,14 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="DAISY::OISManager" Collapsed="true">
-    <Position X="18.25" Y="1.5" Width="1.5" />
+    <Position X="15.5" Y="4" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>ECgAAgAAAABgAAgBAIEAAAAAAgAQAAYAAEAAACAEAAI=</HashCode>
       <FileName>ControllerOISManager.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DAISY::Director" Collapsed="true">
-    <Position X="14.75" Y="0.5" Width="1.5" />
+    <Position X="16.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BCBAAhAAAABAAAIDBAABAAAAAAAAAAIQAQAAgAAAEAA=</HashCode>
       <FileName>Director.h</FileName>
@@ -22,7 +25,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="DAISY::GameComponentFactory" Collapsed="true">
-    <Position X="2.25" Y="3.5" Width="2.25" />
+    <Position X="4.25" Y="4.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAgAAAAAAAAAAQAABAAAAAAAAAAAAAAAAEA=</HashCode>
       <FileName>GameObject.h</FileName>
@@ -31,19 +34,19 @@
   <Class Name="DAISY::GameObject">
     <Position X="18.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EBAAIiAAAAAQAAAAAAAAAQAAgIAEAAAAAAAABIIkAAA=</HashCode>
+      <HashCode>EBAAIiAAAAAQAAAAAAAAAQAAgIAEAAAAAAAABIIkAAI=</HashCode>
       <FileName>GameObject.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DAISY::GameObjectManager" Collapsed="true">
-    <Position X="20" Y="0.5" Width="1.5" />
+    <Position X="12.75" Y="3.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAEAAAAAAEABABAAAAAAAIAAAACAAAABAAAAgEAAA=</HashCode>
       <FileName>GameObject.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DAISY::GameComponentManager" Collapsed="true">
-    <Position X="16.5" Y="0.5" Width="1.5" />
+    <Position X="14" Y="1.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>SAAAgAAEAQAAAQAAAAAAAQAAAAAgAIAAAAAAAAAAAAA=</HashCode>
       <FileName>GameObject.h</FileName>
@@ -51,27 +54,13 @@
   </Class>
   <Class Name="DAISY::EventReceiver" Collapsed="true">
     <Position X="2.25" Y="0.5" Width="1.5" />
-    <InheritanceLine Type="DAISY::GameComponent" FixedFromPoint="true">
-      <Path>
-        <Point X="6.5" Y="0.536" />
-        <Point X="3.75" Y="0.536" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>QQAAAAAAABAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
       <FileName>GCEventReceiver.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DAISY::GCNode" Collapsed="true">
-    <Position X="10.25" Y="3" Width="1.5" />
-    <InheritanceLine Type="DAISY::GameComponent" FixedFromPoint="true">
-      <Path>
-        <Point X="7.5" Y="1.059" />
-        <Point X="7.5" Y="2.7" />
-        <Point X="11" Y="2.7" />
-        <Point X="11" Y="3" />
-      </Path>
-    </InheritanceLine>
+    <Position X="3.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QQAAIBgDAQACAAAAAAAAAMAiAAAAAEAAADCDAAIAFAA=</HashCode>
       <FileName>GCnode.h</FileName>
@@ -85,21 +74,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="DAISY::OgreEntityComponentFactory" Collapsed="true">
-    <Position X="0.75" Y="5" Width="1.5" />
+    <Position X="7.75" Y="6.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAQAABAIAAAAAAAAAAAAAACA=</HashCode>
       <FileName>GCnode.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DAISY::CameraComponentFactory" Collapsed="true">
-    <Position X="3" Y="5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAIAAAAAAAAAAAAAAAQAABAAAABAAAAAAAAAAAAA=</HashCode>
-      <FileName>GCnode.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="DAISY::NodeComponentFactory" Collapsed="true">
-    <Position X="7.5" Y="5" Width="1.5" />
+    <Position X="7.75" Y="5.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAgAAAAAgAAAAQAABAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GCnode.h</FileName>
@@ -107,28 +89,23 @@
   </Class>
   <Class Name="DAISY::PhysicsBody" Collapsed="true">
     <Position X="9.75" Y="1.75" Width="1.5" />
-    <InheritanceLine Type="DAISY::GameComponent" FixedFromPoint="true">
-      <Path>
-        <Point X="7.5" Y="1.059" />
-        <Point X="7.5" Y="1.375" />
-        <Point X="10.5" Y="1.375" />
-        <Point X="10.5" Y="1.75" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>YRAAAAgACAAEQJAEAAAAQAAAAQAAAIAgBICAAACAAQA=</HashCode>
       <FileName>GCPhysicsBody.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DAISY::OgreMostionState" Collapsed="true">
-    <Position X="16.5" Y="1.5" Width="1.5" />
+  <Class Name="DAISY::OgreMostionState">
+    <Position X="21.25" Y="0.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>QAACAAABAAAAAAAAAEAAAAgAAAAAAAAAAAEAAAAAAAE=</HashCode>
       <FileName>GCPhysicsBody.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DAISY::PhysicsBodyComponentFactory" Collapsed="true">
-    <Position X="9.75" Y="5" Width="1.5" />
+    <Position X="8.75" Y="4.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAAAAAAAAAAAQAABAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GCPhysicsBody.h</FileName>
@@ -136,42 +113,42 @@
   </Class>
   <Class Name="DAISY::UserComponent" Collapsed="true">
     <Position X="2.25" Y="1.75" Width="1.5" />
-    <InheritanceLine Type="DAISY::GameComponent" FixedFromPoint="true">
-      <Path>
-        <Point X="7.5" Y="1.059" />
-        <Point X="7.5" Y="1.375" />
-        <Point X="3" Y="1.375" />
-        <Point X="3" Y="1.75" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>wQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiAAAAAAAA=</HashCode>
       <FileName>GCUserComponent.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DAISY::UserComponentFactory" Collapsed="true">
-    <Position X="5.25" Y="5" Width="1.5" />
+    <Position X="9.25" Y="4" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAIEAAAQAABAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GCUserComponent.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DAISY::OgreManager" Collapsed="true">
-    <Position X="14.75" Y="1.5" Width="1.5" />
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>yCACAAICAwDQAAAziAlACgAAQAABIgIABAAgAiQEAQg=</HashCode>
       <FileName>ViewOgreManager.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DAISY::ScriptManager" Collapsed="true">
-    <Position X="14.75" Y="2.5" Width="1.5" />
+    <Position X="14.5" Y="2.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABAAAACAAAAAAAAAIAAAADAAREAAA=</HashCode>
       <FileName>GOSScriptManager.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DAISY::PhysicsManager" Collapsed="true">
-    <Position X="21" Y="1.5" Width="1.5" />
+    <Position X="12.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAggAABCBAQABACAAAAAAAAAAAAMACAAACIAEAAA=</HashCode>
       <FileName>PhysicsManager.h</FileName>
@@ -185,7 +162,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Ogre::Vector3" Collapsed="true">
-    <Position X="16.5" Y="2.5" Width="1.5" />
+    <Position X="21.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAJAIFAAIIAAAAAAAEEAIUAAgEkAAGBAQQBgBQgEIQo=</HashCode>
       <FileName>f:\dev\ogre\build_msvc\sdk\include\ogre\ogrevector3.h</FileName>
@@ -234,7 +211,7 @@
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="DAISY::GameComponentMap" Collapsed="true">
-    <Position X="20" Y="4.75" Width="1.5" />
+    <Position X="21.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GOSDecl.h</FileName>
@@ -248,14 +225,14 @@
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="DAISY::GameObjectMap" Collapsed="true">
-    <Position X="16.5" Y="5.5" Width="1.5" />
+    <Position X="17.25" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GOSDecl.h</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="DAISY::GameComponentFactoyMap" Collapsed="true">
-    <Position X="16.5" Y="4.75" Width="1.5" />
+    <Position X="19.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GOSDecl.h</FileName>
@@ -269,14 +246,14 @@
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="DAISY::BodyList" Collapsed="true">
-    <Position X="14.75" Y="4.75" Width="1.5" />
+    <Position X="16" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PhysicsManager.h</FileName>
     </TypeIdentifier>
   </Typedef>
   <Enum Name="DAISY::CollisionFlags" Collapsed="true">
-    <Position X="14.75" Y="3.75" Width="1.5" />
+    <Position X="10" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAABQAAAAAAAQAAgAAAAAAAAAIACAAAAAAAgA=</HashCode>
       <FileName>GCPhysicsBody.h</FileName>

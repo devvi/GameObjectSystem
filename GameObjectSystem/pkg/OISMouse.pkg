@@ -1,0 +1,99 @@
+enum ComponentType
+{
+	OIS_Unknown = 0,
+	OIS_Button  = 1, //ie. Key, mouse button, joy button, etc
+	OIS_Axis    = 2, //ie. A joystick or mouse axis
+	OIS_Slider  = 3, //
+	OIS_POV     = 4, //ie. Arrow direction keys
+	OIS_Vector3 = 5  //ie. WiiMote orientation
+};
+
+//! Base of all device components (button, axis, etc)
+class Component
+{
+public:
+	Component() : cType(OIS_Unknown) {};
+	Component(ComponentType type) : cType(type) {};
+	
+	ComponentType cType;
+};
+
+//! Button can be a keyboard key, mouse button, etc
+class Button : public Component
+{
+public:
+	Button() {}
+	Button(bool bPushed) : Component(OIS_Button), pushed(bPushed) {};
+	//! true if pushed, false otherwise
+	bool pushed;
+};
+
+//! Axis component
+class Axis : public Component
+{
+public:
+	Axis() : Component(OIS_Axis), abs(0), rel(0), absOnly(false) {};
+
+	//! Absoulte and Relative value components
+	int abs, rel;
+
+	//! Indicates if this Axis only supports Absoulte (ie JoyStick)
+	bool absOnly;
+
+	//! Used internally by OIS
+	void clear()
+	{
+		abs = rel = 0;
+	}
+};
+
+enum MouseButtonID
+{
+	MB_Left = 0, MB_Right, MB_Middle,
+	MB_Button3, MB_Button4,	MB_Button5, MB_Button6,	MB_Button7
+};
+
+class MouseState
+{
+public:
+	MouseState() : width(50), height(50), buttons(0) {};
+
+	int width, height;
+
+	Axis X;
+
+
+	Axis Y;
+
+	
+	Axis Z;
+
+	
+	int buttons;
+
+	
+	inline bool buttonDown( MouseButtonID button ) const
+	{
+		return ((buttons & ( 1L << button )) == 0) ? false : true;
+	}
+
+	
+	void clear()
+	{
+		X.clear();
+		Y.clear();
+		Z.clear();
+		buttons = 0;
+	}
+};
+
+
+class MouseEvent : public EventArg
+{
+public:
+	MouseEvent( Object *obj, const MouseState &ms )	: EventArg(obj), state(ms) {}
+	virtual ~MouseEvent() {}
+
+	
+	const MouseState &state;
+};

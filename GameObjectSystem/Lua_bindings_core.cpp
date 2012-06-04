@@ -1,6 +1,6 @@
 /*
 ** Lua binding: DAISYCORE
-** Generated automatically by tolua++-1.0.92 on 05/25/12 21:45:13.
+** Generated automatically by tolua++-1.0.92 on 05/29/12 14:02:10.
 */
 
 #ifndef __cplusplus
@@ -1189,6 +1189,39 @@ static int tolua_DAISYCORE_GameObject_addGC00(lua_State* tolua_S)
 }
 #endif //#ifndef TOLUA_DISABLE
 
+/* method: detachGC of class  GameObject */
+#ifndef TOLUA_DISABLE_tolua_DAISYCORE_GameObject_detachGC00
+static int tolua_DAISYCORE_GameObject_detachGC00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"GameObject",0,&tolua_err) ||
+     !tolua_isusertype(tolua_S,2,"GameComponent",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  GameObject* self = (GameObject*)  tolua_tousertype(tolua_S,1,0);
+  GameComponent* gameComponent = ((GameComponent*)  tolua_tousertype(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'detachGC'", NULL);
+#endif
+  {
+   self->detachGC(gameComponent);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'detachGC'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
 /* method: getGC of class  GameObject */
 #ifndef TOLUA_DISABLE_tolua_DAISYCORE_GameObject_getGC00
 static int tolua_DAISYCORE_GameObject_getGC00(lua_State* tolua_S)
@@ -1218,6 +1251,40 @@ static int tolua_DAISYCORE_GameObject_getGC00(lua_State* tolua_S)
 #ifndef TOLUA_RELEASE
  tolua_lerror:
  tolua_error(tolua_S,"#ferror in function 'getGC'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: getUserGC of class  GameObject */
+#ifndef TOLUA_DISABLE_tolua_DAISYCORE_GameObject_getUserGC00
+static int tolua_DAISYCORE_GameObject_getUserGC00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"GameObject",0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  GameObject* self = (GameObject*)  tolua_tousertype(tolua_S,1,0);
+   int user_type = ((  int)  tolua_tonumber(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'getUserGC'", NULL);
+#endif
+  {
+   GameComponent* tolua_ret = (GameComponent*)  self->getUserGC(user_type);
+    tolua_pushusertype(tolua_S,(void*)tolua_ret,"GameComponent");
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'getUserGC'.",&tolua_err);
  return 0;
 #endif
 }
@@ -1325,10 +1392,9 @@ static int tolua_DAISYCORE_GameObject_hasUserGC00(lua_State* tolua_S)
 #endif //#ifndef TOLUA_DISABLE
 
 /* method: getUserGC of class  GameObject */
-#ifndef TOLUA_DISABLE_tolua_DAISYCORE_GameObject_getUserGC00
-static int tolua_DAISYCORE_GameObject_getUserGC00(lua_State* tolua_S)
+#ifndef TOLUA_DISABLE_tolua_DAISYCORE_GameObject_getUserGC01
+static int tolua_DAISYCORE_GameObject_getUserGC01(lua_State* tolua_S)
 {
-#ifndef TOLUA_RELEASE
  tolua_Error tolua_err;
  if (
      !tolua_isusertype(tolua_S,1,"GameObject",0,&tolua_err) ||
@@ -1337,7 +1403,6 @@ static int tolua_DAISYCORE_GameObject_getUserGC00(lua_State* tolua_S)
  )
   goto tolua_lerror;
  else
-#endif
  {
   GameObject* self = (GameObject*)  tolua_tousertype(tolua_S,1,0);
    int user_type = ((  int)  tolua_tonumber(tolua_S,2,0));
@@ -1350,11 +1415,8 @@ static int tolua_DAISYCORE_GameObject_getUserGC00(lua_State* tolua_S)
   }
  }
  return 1;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'getUserGC'.",&tolua_err);
- return 0;
-#endif
+tolua_lerror:
+ return tolua_DAISYCORE_GameObject_getUserGC00(tolua_S);
 }
 #endif //#ifndef TOLUA_DISABLE
 
@@ -4308,11 +4370,13 @@ TOLUA_API int tolua_DAISYCORE_open (lua_State* tolua_S)
   tolua_cclass(tolua_S,"GameObject","GameObject","",NULL);
   tolua_beginmodule(tolua_S,"GameObject");
    tolua_function(tolua_S,"addGC",tolua_DAISYCORE_GameObject_addGC00);
+   tolua_function(tolua_S,"detachGC",tolua_DAISYCORE_GameObject_detachGC00);
    tolua_function(tolua_S,"getGC",tolua_DAISYCORE_GameObject_getGC00);
+   tolua_function(tolua_S,"getUserGC",tolua_DAISYCORE_GameObject_getUserGC00);
    tolua_function(tolua_S,"removeGC",tolua_DAISYCORE_GameObject_removeGC00);
    tolua_function(tolua_S,"hasGC",tolua_DAISYCORE_GameObject_hasGC00);
    tolua_function(tolua_S,"hasUserGC",tolua_DAISYCORE_GameObject_hasUserGC00);
-   tolua_function(tolua_S,"getUserGC",tolua_DAISYCORE_GameObject_getUserGC00);
+   tolua_function(tolua_S,"getUserGC",tolua_DAISYCORE_GameObject_getUserGC01);
    tolua_function(tolua_S,"removeAllGC",tolua_DAISYCORE_GameObject_removeAllGC00);
    tolua_function(tolua_S,"traverseUserFunction",tolua_DAISYCORE_GameObject_traverseUserFunction00);
   tolua_endmodule(tolua_S);

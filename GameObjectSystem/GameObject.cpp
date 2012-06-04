@@ -1,3 +1,9 @@
+/*
+-----------------------------------------------------------------------------
+This soure file is part of GameObjectSystem.
+Copyright (c) 2012 Devvi
+-----------------------------------------------------------------------------
+*/
 #include "GameObject.h"
 #include "GOSScriptManager.h"
 #include "tolua++.h"
@@ -19,6 +25,12 @@ GameObject* GameComponent::getGameObject()
 void GameComponent::setGameObejct(GameObject* go)
 {
 	assert(go);
+	// see if go has this type component
+	if(go->hasGC(_gc_type)&&go->hasUserGC(_user_type))
+	{
+		_game_object = NULL;
+		return;
+	}
 	_game_object = go;
 }
 void GameComponent::setUserType(TYPE_ID type)
@@ -315,11 +327,6 @@ GameComponent* GameComponentManager::createGameComponent(TYPE_ID gc_type,TYPE_ID
 				if (gameObject)
 					gameObject->addGC(gc);
 				gc->setUserType(user_type);
-				
-			}
-			else
-			{
-				// haven't registered this user type
 				
 			}
 		}

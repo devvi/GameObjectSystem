@@ -1,0 +1,71 @@
+namespace Ogre
+{
+    class Vector4
+    {
+    public:
+        Real x, y, z, w;
+
+    public:
+        inline Vector4();
+       
+
+        inline Vector4( const Real fX, const Real fY, const Real fZ, const Real fW );
+            
+
+        inline  Vector4( const Real afCoordinate[4] );
+            
+        
+        inline  Vector4( const int afCoordinate[4] );
+       
+
+        inline  Vector4( const Real scaler );
+           
+
+        inline  Vector4(const Vector3& rhs);
+         
+		/** Exchange the contents of this vector with another. 
+		*/
+		inline void swap(Vector4& other);
+	
+        inline Vector4& operator = ( const Vector4& rkVector );
+        
+		inline Vector4& operator = ( const Real fScalar);
+		
+
+        inline bool operator == ( const Vector4& rkVector ) const;
+      
+
+        inline Vector4& operator = (const Vector3& rhs);
+       
+
+        // arithmetic operations
+        inline Vector4 operator + ( const Vector4& rkVector ) const;
+       
+
+        inline Vector4 operator - ( const Vector4& rkVector ) const;
+       
+
+        inline Vector4 operator * ( const Real fScalar ) const;
+       
+
+        inline Vector4 operator * ( const Vector4& rhs) const;
+        
+
+        inline Vector4 operator / ( const Real fScalar ) const;
+        
+
+        inline Vector4 operator / ( const Vector4& rhs) const;
+       
+
+        inline const Vector4& operator + () const;
+       
+        inline Vector4 operator - () const;
+        
+        inline Real dotProduct(const Vector4& vec) const;
+      
+        // special
+        static const Vector4 ZERO;
+    };
+}
+#endif
+

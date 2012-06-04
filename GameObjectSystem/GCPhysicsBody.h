@@ -1,3 +1,10 @@
+/*
+-----------------------------------------------------------------------------
+This soure file is part of GameObjectSystem.
+Copyright (c) 2012 Devvi
+-----------------------------------------------------------------------------
+*/
+
 #ifndef __GAME_OBJECT_SYSTEM_GC_PHYSICS_BODY_H__
 #define __GAME_OBJECT_SYSTEM_GC_PHYSICS_BODY_H__
 #include "GOSDecl.h"
@@ -65,7 +72,15 @@ namespace DAISY
 
 		void getWorldTransform(btTransform& worldTrans ) const
 		{
-			worldTrans = mPosl;
+			if (NULL == ogreNode)
+				worldTrans = mPosl;
+			else
+			{
+				Ogre::Vector3 pos = ogreNode->_getDerivedPosition();
+				Ogre::Quaternion orient = ogreNode->_getDerivedOrientation();
+				worldTrans.setOrigin(btVector3(pos.x, pos.y, pos.z));
+				worldTrans.setRotation(btQuaternion(orient.x, orient.y, orient.z, orient.w));
+			}
 		}
 
 		void setWorldTransform(const btTransform& worldTrans)

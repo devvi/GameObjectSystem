@@ -1,0 +1,5 @@
+namespace Ogre{
+	typedef float Real;
+	typedef std::string String;
+	typedef unsigned int uint32;
+}

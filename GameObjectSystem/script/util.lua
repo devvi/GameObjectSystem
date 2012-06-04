@@ -1,3 +1,6 @@
+-- Function: Utils
+-- Author  : Devvi
+-- Data    : 2012.05.16
 local tostring = tostring
 local math = math
 local io = io
@@ -14,7 +17,12 @@ function writeLog(s)
 	end
 	file:flush()
 end
-
+function writeLog_unit(s)
+	if s ~= nil then
+		file:write(s.."\n")
+	end
+	file:flush()
+end
 function closeLog()
 	file:flush()
 	file:close()

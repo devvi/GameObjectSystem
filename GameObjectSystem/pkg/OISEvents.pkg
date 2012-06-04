@@ -1,0 +1,19 @@
+$pfile "OISPrereqs.pkg"
+
+namespace OIS
+{
+	/**
+		Base class of all events
+	*/
+	class EventArg
+	{
+	public:
+		EventArg( Object* obj ) : device(obj) {}
+		virtual ~EventArg() {}
+
+		//! Pointer to the Input Device
+		const Object* device;
+	};
+}
+
+#endif //_OIS_EVENTHEADERS_

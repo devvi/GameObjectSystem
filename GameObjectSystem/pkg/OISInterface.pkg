@@ -1,0 +1,19 @@
+$pfile "OISPrereqs.pkg"
+
+
+namespace OIS
+{
+	
+	class Interface
+	{
+	public:
+		virtual ~Interface() {};
+
+		//! Type of Interface
+		enum IType
+		{
+			ForceFeedback,
+			Reserved
+		};
+	};
+}

@@ -1,0 +1,24 @@
+namespace Ogre{
+	enum SceneType
+	{
+		ST_GENERIC = 1,
+		ST_EXTERIOR_CLOSE = 2,
+		ST_EXTERIOR_FAR = 4,
+		ST_EXTERIOR_REAL_FAR = 8,
+		ST_INTERIOR = 16
+	};
+class SceneManager
+    {
+    public:
+       virtual Camera* createCamera(const String& name);
+	   
+	   virtual void destroyCamera(Camera *cam);
+	   
+	   /** Creates a light with a generated name. */
+	virtual Light* createLight();
+		
+		virtual void destroyLight(Light* light);
+		
+	};		
+}
+		
